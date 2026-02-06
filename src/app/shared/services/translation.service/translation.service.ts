@@ -1,10 +1,7 @@
-import { Component } from '@angular/core';
+import { Injectable } from '@angular/core';
 
-@Component({
-  selector: 'app-translation.service',
-  imports: [],
-  templateUrl: './translation.service.html',
-  styleUrl: './translation.service.scss',
+@Injectable({
+  providedIn: 'root',
 })
 export class TranslationService {
 
