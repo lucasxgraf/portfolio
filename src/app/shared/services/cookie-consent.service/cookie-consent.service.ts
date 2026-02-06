@@ -1,10 +1,7 @@
-import { Component } from '@angular/core';
+import { Injectable } from '@angular/core';
 
-@Component({
-  selector: 'app-cookie-consent.service',
-  imports: [],
-  templateUrl: './cookie-consent.service.html',
-  styleUrl: './cookie-consent.service.scss',
+@Injectable({
+  providedIn: 'root',
 })
 export class CookieConsentService {
 
