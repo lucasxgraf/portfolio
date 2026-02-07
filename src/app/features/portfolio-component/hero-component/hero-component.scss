@@ -1,0 +1,61 @@
+@use './../../../../styles.scss' as *;
+
+// Animation Loader / Hero
+.fade_in_after_loader {
+  opacity: 0;
+  animation: fadeInHero 0.8s ease-out 4.2s forwards;
+}
+
+@keyframes fadeInHero {
+  from { 
+    opacity: 0; 
+    transform: translateY(10px);
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0);
+  }
+}
+
+// Hero
+main {
+  height: 100vh;
+  width: 100%;
+  background-image: url('../../../assets/img/hero/hero-bg.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  .hero_content {
+    @include flex-center();
+    flex-direction: column;
+    height: inherit;
+
+    h2 {
+      font-family: $font-fira;
+      font-weight: 400;
+      font-size: 2.5rem;
+      line-height: 100%;
+      color: $light-gray;
+    }
+
+    h1 {
+      font-family: $font-karla;
+      font-weight: 700;
+      font-size: 8rem;
+      line-height: 100%;
+      letter-spacing: -2%;
+    }
+
+    .hero_title_layout {
+      @include flex-center();
+      flex-direction: column;
+      gap: 40px;
+    }
+
+    .hero_title_btn {
+      @include flex-center();
+      gap: 40px;
+    } 
+  }
+}
