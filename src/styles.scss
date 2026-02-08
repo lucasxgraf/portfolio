@@ -1,8 +1,12 @@
+@use '../src/styles/variables' as *;
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   color: white;
+  outline: none;
+  font-family: $font-fira;
 }
 
 /* karla-regular - latin */
@@ -79,17 +83,6 @@
   src: url('../src/app/assets/fonts/fira-code-v27-latin-700.woff2') format('woff2');
 }
 
-$font-karla: 'Karla', sans-serif;
-$font-fira: 'Fira Code', monospace;
-
-$light-gray: #D9D9D9;
-
-@mixin flex-center() {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 .btn {
   height: 2.5rem;
   border-radius: 100px;
@@ -101,5 +94,10 @@ $light-gray: #D9D9D9;
   font-family: $font-karla;
   line-height: 120%;
   font-weight: 400;
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
   cursor: pointer;
 }

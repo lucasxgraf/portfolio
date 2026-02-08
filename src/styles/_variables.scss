@@ -1,0 +1,28 @@
+$font-karla: 'Karla', sans-serif;
+$font-fira: 'Fira Code', monospace;
+
+$color-light-gray: #D9D9D9;
+$color-accent:#3DCFB6;
+
+$defaultDuration: .3s;
+
+@mixin flex-center() {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin hideTapHighlightColor() {
+	//Prevent highlight colour when element is tapped
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+@mixin hardwareAccel() {
+	//Improve performance on mobile/tablet devices
+	transform: translateZ(0);
+}
+
+@mixin improveAntiAlias() {
+	//Improve aliasing on mobile/tablet devices
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+}
