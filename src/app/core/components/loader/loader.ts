@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-loader-component',
+  selector: 'app-loader',
   imports: [],
-  templateUrl: './loader-component.html',
-  styleUrl: './loader-component.scss',
+  templateUrl: './loader.html',
+  styleUrl: './loader.scss',
 })
 export class LoaderComponent implements OnInit {
   isVisible:boolean = true;
