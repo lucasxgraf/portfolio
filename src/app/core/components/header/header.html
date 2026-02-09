@@ -1,7 +1,8 @@
 <header>
   <div class="header_left">
     <div class="language_toggle" (click)="changeLanguage()">
-      <button class="btn lang_btn" [class.english]="isEnglish">
+      <button class="btn lang_btn" [class.german]="!isEnglish">
+        <div class="lang_slider" [class.german]="!isEnglish"></div>
         <span class="lang_option en" [class.active]="isEnglish">EN</span>
         <span class="lang_option de" [class.active]="!isEnglish">DE</span>
       </button>
