@@ -1,13 +1,16 @@
 <header>
   <div class="header_left">
-    <div>
-      <button class="btn">DE/EN</button>
+    <div class="language_toggle" (click)="changeLanguage()">
+      <button class="btn lang_btn" [class.english]="isEnglish">
+        <span class="lang_option en" [class.active]="isEnglish">EN</span>
+        <span class="lang_option de" [class.active]="!isEnglish">DE</span>
+      </button>
     </div>
     <nav>
-      <a href="#" class="hover_shadow">About me</a>
-      <a href="#" class="hover_shadow">Skills</a>
-      <a href="#" class="hover_shadow">Projects</a>
+      <a href="#" class="hover_shadow">{{ 'NAV.ABOUT' | translate }}</a>
+      <a href="#" class="hover_shadow">{{ 'NAV.SKILLS' | translate }}</a>
+      <a href="#" class="hover_shadow">{{ 'NAV.PROJECTS' | translate }}</a>
     </nav>
   </div>
-  <img src="assets/img/logo/logo-lucas-graf.png" alt="Logo Lucas Graf">
+  <img src="assets/img/logo/logo.png" alt="Logo Lucas Graf">
 </header>

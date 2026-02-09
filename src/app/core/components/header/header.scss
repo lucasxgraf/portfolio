@@ -26,6 +26,42 @@ header {
       }
     }
   }
+
+  img {
+    width: 256px;
+    height: 56px;
+  }
+}
+
+.language_toggle {
+  .lang_btn {
+    display: flex;
+    align-items: center;
+    padding: 2px;
+    border-color: $color-accent;
+    height: auto;
+
+    .lang_option {
+      padding: 8px 16px;
+      border-radius: 100px;
+      transition: all 0.3s ease;
+      color: white;
+      
+      &.active {
+        background-color: $color-accent;
+        color: white;
+        font-weight: bold;
+        line-height: 120%;
+      }
+    }
+    
+    &:hover {
+      .lang_option:not(.active) {
+        color: $color-accent;
+      }
+      border-color: white !important;
+    }
+  }
 }
 
 .hover_shadow {
