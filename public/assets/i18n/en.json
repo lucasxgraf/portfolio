@@ -3,5 +3,16 @@
     "ABOUT": "About me",
     "SKILLS": "Skills",
     "PROJECTS": "Projects"
+  },
+  "HERO": {
+    "JOB_TITLE": "Frontend Developer",
+    "MY_PROJECTS": "Check my work",
+    "CONTACT_ME": "Contact me",
+    "MARQUEE": {
+      "REMOTE_WORK": "Available for remote work",
+      "JOB_TITLE": "Frontend Developer",
+      "LOCATION": "Based in Leipzig",
+      "OPEN_TO_WORK": "Open to work"
+    }
   }
 }

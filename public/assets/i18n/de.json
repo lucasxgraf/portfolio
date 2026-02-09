@@ -3,5 +3,16 @@
     "ABOUT": "Über mich",
     "SKILLS": "Fähigkeiten",
     "PROJECTS": "Projekte"
+  },
+  "HERO": {
+    "JOB_TITLE": "Frontend Entwickler",
+    "MY_PROJECTS": "Meine Projekte",
+    "CONTACT_ME": "Kontaktiere mich",
+    "MARQUEE": {
+      "REMOTE_WORK": "Verfügbar für Remote-Arbeit",
+      "JOB_TITLE": "Frontend Entwickler",
+      "LOCATION": "Ansässig in Leipzig",
+      "OPEN_TO_WORK": "Offen für neue Projekte"
+    }
   }
 }
