@@ -1,10 +1,21 @@
+@use '../src/styles/variables' as *;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: white;
+  outline: none;
+  font-family: $font-fira;
+}
+
 /* karla-regular - latin */
 @font-face {
   font-display: swap;
   font-family: 'Karla';
   font-style: normal;
   font-weight: 400;
-  src: url('../src/app/assets/fonts/karla-v33-latin-regular.woff2') format('woff2');
+  src: url('../public/assets/fonts/karla-v33-latin-regular.woff2') format('woff2');
 }
 /* karla-500 - latin */
 @font-face {
@@ -12,7 +23,7 @@
   font-family: 'Karla';
   font-style: normal;
   font-weight: 500;
-  src: url('../src/app/assets/fonts/karla-v33-latin-500.woff2') format('woff2');
+  src: url('../public/assets/fonts/karla-v33-latin-500.woff2') format('woff2');
 }
 /* karla-600 - latin */
 @font-face {
@@ -20,7 +31,7 @@
   font-family: 'Karla';
   font-style: normal;
   font-weight: 600;
-  src: url('../src/app/assets/fonts/karla-v33-latin-600.woff2') format('woff2');
+  src: url('../public/assets/fonts/karla-v33-latin-600.woff2') format('woff2');
 }
 /* karla-700 - latin */
 @font-face {
@@ -28,7 +39,7 @@
   font-family: 'Karla';
   font-style: normal;
   font-weight: 700;
-  src: url('../src/app/assets/fonts/karla-v33-latin-700.woff2') format('woff2');
+  src: url('../public/assets/fonts/karla-v33-latin-700.woff2') format('woff2');
 }
 /* karla-800 - latin */
 @font-face {
@@ -36,7 +47,7 @@
   font-family: 'Karla';
   font-style: normal;
   font-weight: 800;
-  src: url('../src/app/assets/fonts/karla-v33-latin-800.woff2') format('woff2');
+  src: url('../public/assets/fonts/karla-v33-latin-800.woff2') format('woff2');
 }
 
 /* fira-code-regular - latin */
@@ -45,7 +56,7 @@
   font-family: 'Fira Code';
   font-style: normal;
   font-weight: 400;
-  src: url('../src/app/assets/fonts/fira-code-v27-latin-regular.woff2') format('woff2');
+  src: url('../public/assets/fonts/fira-code-v27-latin-regular.woff2') format('woff2');
 }
 /* fira-code-500 - latin */
 @font-face {
@@ -53,7 +64,7 @@
   font-family: 'Fira Code';
   font-style: normal;
   font-weight: 500;
-  src: url('../src/app/assets/fonts/fira-code-v27-latin-500.woff2') format('woff2');
+  src: url('../public/assets/fonts/fira-code-v27-latin-500.woff2') format('woff2');
 }
 /* fira-code-600 - latin */
 @font-face {
@@ -61,7 +72,7 @@
   font-family: 'Fira Code';
   font-style: normal;
   font-weight: 600;
-  src: url('../src/app/assets/fonts/fira-code-v27-latin-600.woff2') format('woff2');
+  src: url('../public/assets/fonts/fira-code-v27-latin-600.woff2') format('woff2');
 }
 /* fira-code-700 - latin */
 @font-face {
@@ -69,5 +80,24 @@
   font-family: 'Fira Code';
   font-style: normal;
   font-weight: 700;
-  src: url('../src/app/assets/fonts/fira-code-v27-latin-700.woff2') format('woff2');
+  src: url('../public/assets/fonts/fira-code-v27-latin-700.woff2') format('woff2');
+}
+
+.btn {
+  height: 2.5rem;
+  border-radius: 100px;
+  border: 1px solid white;
+  background: transparent;
+  padding: 0 24px;
+  gap: 8px;
+  font-size: 1rem;
+  font-family: $font-karla;
+  line-height: 120%;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
 }

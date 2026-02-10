@@ -1,1 +1,17 @@
-<p>header works!</p>
+<header>
+  <div class="header_left">
+    <div class="language_toggle" (click)="changeLanguage()">
+      <button class="btn lang_btn" [class.german]="!isEnglish">
+        <div class="lang_slider" [class.german]="!isEnglish"></div>
+        <span class="lang_option en" [class.active]="isEnglish">EN</span>
+        <span class="lang_option de" [class.active]="!isEnglish">DE</span>
+      </button>
+    </div>
+    <nav>
+      <a href="#" class="hover_shadow">{{ 'NAV.ABOUT' | translate }}</a>
+      <a href="#" class="hover_shadow">{{ 'NAV.SKILLS' | translate }}</a>
+      <a href="#" class="hover_shadow">{{ 'NAV.PROJECTS' | translate }}</a>
+    </nav>
+  </div>
+  <img src="assets/img/logo/logo.png" alt="Logo Lucas Graf">
+</header>
