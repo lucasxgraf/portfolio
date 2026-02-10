@@ -14,5 +14,13 @@
       "LOCATION": "Ansässig in Leipzig",
       "OPEN_TO_WORK": "Offen für neue Projekte"
     }
+  },
+  "ABOUT-ME": {
+    "WHO_I_AM": "Wer Ich bin",
+    "TITLE": "Über mich",
+    "INTRO": "Hey, ich bin Lucas. Mein Weg in die Tech-Welt begann nicht in der Informatik, sondern im BWL-Studium. Dort wurde mir immer klarer, wie stark Technologie moderne Unternehmen prägt. Aus dieser Neugier wurde eine Entscheidung: Ich wollte digitale Produkte nicht nur verstehen, sondern selbst entwickeln. Heute arbeite ich konsequent daran, Softwareentwicklung zu meinem Beruf zu machen und mich jeden Tag weiterzuentwickeln.",
+    "LEARNING": "Ich lebe das 1 % besser jeden Tag-Mindset. Softwareentwicklung spiegelt diese Haltung perfekt wider: Systeme optimieren, Code verbessern und kontinuierlich neue Technologien lernen.",
+    "APPROACH": "Neugierig zu bleiben, neue Technologien zu entdecken und mich regelmäßig aus meiner Komfortzone zu bewegen, ist für mich selbstverständlich.",
+    "LOCATION": "Ich wohne in Leipzig und bin offen für Remote-Arbeit."
   }
 }

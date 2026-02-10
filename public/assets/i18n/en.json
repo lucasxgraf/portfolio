@@ -14,5 +14,13 @@
       "LOCATION": "Based in Leipzig",
       "OPEN_TO_WORK": "Open to work"
     }
+  },
+    "ABOUT-ME": {
+    "WHO_I_AM": "Who I am",
+    "TITLE": "About me",
+    "INTRO": "Hey, I’m Lucas. My journey into tech didn’t start in computer science. It started in business. During my BWL degree, I became fascinated by how technology drives modern companies. That curiosity quickly turned into a decision: I didn’t just want to understand digital products — I wanted to build them. Today, I’m fully committed to becoming a developer and continuously improving my skills every single day.",
+    "LEARNING": "I strongly believe in the 1% better every day mindset. Software development perfectly reflects that philosophy: refining systems, optimizing codebases, and constantly learning new technologies in a fast-moving industry.",
+    "APPROACH": "I love staying curious, exploring new technologies and pushing myself outside my comfort zone. For me, growth is not optional — it’s the baseline.",
+    "LOCATION": "I’m based in Leipzig, Germany and open to remote work."
   }
 }

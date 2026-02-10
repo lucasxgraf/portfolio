@@ -1,0 +1,122 @@
+@use '../../../../styles/variables' as *;
+
+section {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  background-color: #1C1C1C;
+  overflow: hidden;
+
+  .container {
+    justify-content: center;
+  }
+
+  .about_content_layout {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 80px;
+    width: 100%;
+    height: auto;
+  }
+}
+
+.profile_image_wrapper {
+  position: relative;
+  flex: 1;
+  max-width: 500px;
+  display: flex;
+
+  .profile_picture {
+    width: 100%;
+    height: auto;
+    border-radius: 40px;
+    z-index: 2;
+    object-fit: cover;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+  }
+
+  .background_lines {
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    width: 110%;
+    height: auto;
+    z-index: 1;
+    opacity: 0.5;
+    pointer-events: none;
+  }
+}
+
+.about_text_wrapper {
+  flex: 1.2;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  .section_title {
+    font-family: $font-fira;
+    font-size: 1.5rem;
+    color: $color-accent;
+    font-weight: 500;
+  }
+
+  .content_box {
+    position: relative;
+    padding: 32px;
+    background: linear-gradient(135deg, rgba(28, 28, 28, 0.7) 0%, rgba(8, 70, 59, 0.3) 100%);
+    border: 1px solid rgba($color-accent, 0.1);
+    border-radius: 40px;
+    backdrop-filter: blur(20px);
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    gap: 16px;
+
+    &:hover {
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+      border-color: rgba($color-accent, 0.3);
+    }
+
+    .intro_text {
+
+      p {
+        font-family: $font-karla;
+        font-size: 1rem;
+        line-height: 1.2;
+        font-weight: 400;
+      }
+    }
+
+    .info_list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+
+      .info_item {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+
+        .icon_wrapper {
+          width: 32px;
+          height: 32px;
+          flex-shrink: 0;
+
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+          }
+        }
+
+        p {
+          font-family: $font-karla;
+          line-height: 1.2;
+          color: $color-light-gray;
+        }
+      }
+    }
+  }
+}
