@@ -35,6 +35,17 @@ section {
     z-index: 10;
   }
 
+  .header_gradient {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 98px;
+    z-index: 1;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0) 13.56%, rgba(0, 0, 0, 0.6) 84.01%);
+    pointer-events: none;
+  }
+
   .hero_content {
     @include flex-center();
     flex-direction: column;
@@ -69,12 +80,133 @@ section {
   }
 }
 
+// Scroll Indicator (Left Side)
+.scroll_indicator {
+  position: absolute;
+  bottom: 0;
+  left: 48px;
+  height: 40vh;
+  width: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  gap: 16px;
+
+  .scroll_icon {
+    width: 32px;
+    height: 48px;
+    border-radius: 24px;
+    border: 1px solid $color-accent;
+    @include flex-center();
+    cursor: pointer;
+    transition: border-color $defaultDuration ease;
+
+    .arrow {
+      color: white;
+      animation: bounceArrow 1.5s infinite;
+    }
+
+    &:hover {
+      border-color: white;
+    }
+  }
+
+  .scroll_line {
+    flex: 1;
+    width: 0;
+    border: 1px solid $color-accent;
+  }
+}
+
+@keyframes bounceArrow {
+
+  0%,
+  100% {
+    transform: translateY(-4px);
+  }
+
+  50% {
+    transform: translateY(4px);
+  }
+}
+
+// Social Sidebar (Right Side)
+.social_sidebar {
+  position: absolute;
+  bottom: 0;
+  right: 48px;
+  width: 32px;
+  height: 56vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 16px;
+
+  .email {
+    writing-mode: tb-rl;
+    color: $color-light-gray;
+    text-decoration: none;
+    transition: color 125ms ease-in-out;
+
+    &:hover {
+      color: $color-accent;
+    }
+  }
+
+  .social_icons {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    .social_icon {
+      position: relative;
+      width: 32px;
+      height: 32px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+      img {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        transition: opacity 0.3s ease;
+      }
+
+      .hover_icon {
+        opacity: 0;
+      }
+      
+      &:hover {
+        transform: scale(1.1);
+        
+        .main_icon {
+          opacity: 0;
+        }
+        
+        .hover_icon {
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  .sidebar_line {
+    flex: 1;
+    width: 0;
+    border: 1px solid white;
+  }
+}
+
 // Marquee
 .hero_marquee {
   position: absolute;
   display: flex;
   align-items: center;
-  bottom: 72px;
+  bottom: 54px;
   left: 0;
   right: 0;
   height: 60px;
@@ -88,7 +220,7 @@ section {
 
   .marquee_track {
     display: flex;
-    animation: marqueeAnimation 20s linear infinite;
+    animation: marqueeAnimation 30s linear infinite;
   }
 
   .marquee_content {
