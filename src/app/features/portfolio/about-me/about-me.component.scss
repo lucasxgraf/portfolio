@@ -4,8 +4,8 @@ section {
   height: 100vh;
   display: flex;
   align-items: center;
-  background-color: #1C1C1C;
   overflow: hidden;
+  background-color: #1C1C1C;
 
   .container {
     justify-content: center;
@@ -15,7 +15,7 @@ section {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 80px;
+    gap: 120px;
     width: 100%;
     height: auto;
   }
@@ -24,7 +24,7 @@ section {
 .profile_image_wrapper {
   position: relative;
   flex: 1;
-  max-width: 500px;
+  max-width: 400px;
   display: flex;
 
   .profile_picture {
@@ -80,12 +80,9 @@ section {
     }
 
     .intro_text {
-
       p {
         font-family: $font-karla;
-        font-size: 1rem;
         line-height: 1.2;
-        font-weight: 400;
       }
     }
 

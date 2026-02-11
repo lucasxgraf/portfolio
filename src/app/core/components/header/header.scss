@@ -6,7 +6,7 @@ header {
   justify-content: space-between;
   align-items: center;
   height: 104px;
-  font: $font-karla;
+  padding: 0 32px;
   
   .header_left {
     @include flex-center();
