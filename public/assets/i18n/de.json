@@ -32,5 +32,10 @@
     "CONTACT_ME": "Kontaktieren Sie mich! Ich erweitere mein Skillset kontinuierlich.",
     "CTA_BUTTON": "Reden wir",
     "LEARNING_INTEREST": "Ich habe ein besonderes Interesse am Lernen"
+  },
+  "FEATURED-PROJECTS": {
+    "SUB_TITLE": "Portfolio",
+    "TITLE": "Ausgewählte Projekte",
+    "DESCRIPTION": "Entdecke eine Auswahl meiner Arbeit - Interagiere mit den Projekten, um meine Fähigkeiten in Aktion zu sehen."
   }
 }

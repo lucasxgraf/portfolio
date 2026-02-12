@@ -1,0 +1,36 @@
+@use '../../../../styles/variables' as *;
+
+section {
+  background-color: #1c1c1c;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.featuredProjects_subtitle {
+  color: $color-accent;
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-bottom: 24px;
+}
+
+.featuredProjects_header {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+
+  .featuredProjects_title {
+    font-family: $font-karla;
+    font-size: 4rem;
+    font-weight: 700;
+    color: $color-accent;
+  }
+
+  .featuredProjects_description {
+    font-family: $font-karla;
+    max-width: 600px;
+    line-height: 1.2;
+    color: white;
+  }
+}
