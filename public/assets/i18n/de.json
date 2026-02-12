@@ -22,5 +22,15 @@
     "LEARNING": "Kontinuierliche Optimierung: Das „1 % besser jeden Tag“-Mindset ist mein Standard. Ich brenne darauf, Systeme zu verfeinern, Codebases zu optimieren und technisch am Puls der Zeit zu bleiben.",
     "APPROACH": "Explorative Neugier: Stillstand ist für mich keine Option. Ich suche gezielt nach neuen Herausforderungen und Technologien, um über den Tellerrand hinauszublicken.",
     "LOCATION": " Standort: Ansässig in Leipzig und offen für Remote-Arbeit."
+  },
+  "SKILLS": {
+    "SUB_TITLE": "Technologien",
+    "TITLE": "Fähigkeiten",
+    "DESCRIPTION": "Technologien sind für mich ein Werkzeugkasten zur Lösung echter Probleme. Ich arbeite gern mit modernen Frontend-Tools und möchte verstehen, wie Dinge wirklich funktionieren. Die schnelle Entwicklung im Web motiviert mich, ständig dazuzulernen. Klare Strukturen, logische Lösungen und wartbarer Code prägen meine Arbeitsweise.",
+    "CTA": "Du suchst eine bestimmte",
+    "CTA_SKILL": "Technologie?",
+    "CONTACT_ME": "Kontaktieren Sie mich! Ich erweitere mein Skillset kontinuierlich.",
+    "CTA_BUTTON": "Reden wir",
+    "LEARNING_INTEREST": "Ich habe ein besonderes Interesse am Lernen"
   }
 }

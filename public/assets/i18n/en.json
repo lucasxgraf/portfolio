@@ -15,12 +15,22 @@
       "OPEN_TO_WORK": "Open to work"
     }
   },
-    "ABOUT-ME": {
+  "ABOUT-ME": {
     "WHO_I_AM": "Who I am",
     "TITLE": "About me",
     "INTRO": "Hey, I’m Lucas. During my business degree, one thing fascinated me above all else: how technology forms the core of modern companies. That curiosity quickly turned into a mission. Today, I combine my business expertise with solid software development skills and will be professionalizing this path academically through a degree in Business Informatics (Wirtschaftsinformatik) starting this April.",
     "LEARNING": "Continuous Optimization: I strongly believe in the “1% better every day” mindset. I am driven to refine systems, optimize codebases, and stay at the forefront of new technologies.",
     "APPROACH": "Explorative Curiosity: For me, standing still is not an option. I actively seek out new challenges and technologies to push beyond my comfort zone and broaden my perspective.",
     "LOCATION": "Location: Based in Leipzig, Germany, and open to remote work."
+  },
+  "SKILLS": {
+    "SUB_TITLE": "Technologies",
+    "TITLE": "Skill Set",
+    "DESCRIPTION": "Technology is my toolbox for solving real problems. I enjoy working with modern front-end tools and understanding how things work under the hood. The fast pace of the web excites me — new frameworks and best practices are a constant opportunity to grow. Clear structure, logical solutions and maintainable code guide how I work.",
+    "CTA": "Looking for something",
+    "CTA_SKILL": "specific?",
+    "CONTACT_ME": "Contact me! I’m always expanding my stack.",
+    "CTA_BUTTON": "Lets talk",
+    "TOOLTIP": "I have a special interest in learning"
   }
 }
