@@ -11,8 +11,8 @@
       <div class="featured_projects_list_container">
         <div class="featured_projects_list">
           @for (project of projects; track $index) {
-          <div class="featured_project_row" [class.active]="hoveredIndex === $index" (mouseenter)="hoveredIndex = $index"
-            (mouseleave)="hoveredIndex = null">
+          <div class="featured_project_row" [class.active]="hoveredIndex === $index"
+            (mouseenter)="hoveredIndex = $index" (mouseleave)="hoveredIndex = null">
             <div class="featured_project_info">
               <h3>{{ project.name }} <img src="assets/img/featured-projects/arrow_outward.svg" alt="arrow"
                   class="arrow"></h3>
@@ -24,6 +24,17 @@
               </span>
               }
             </div>
+          </div>
+          }
+        </div>
+      </div>
+
+      <div class="featured_projects_preview_container" [class.visible]="hoveredIndex !== null">
+        <div class="preview_decoration_wrapper" [style.top.px]="hoveredIndex !== null ? hoveredIndex * 65 : 0">
+          @if (hoveredIndex !== null) {
+          <div class="preview_decoration_bg"></div>
+          <div class="featured_project_preview_box">
+            <img [src]="projects[hoveredIndex].previewImage" [alt]="projects[hoveredIndex].name">
           </div>
           }
         </div>

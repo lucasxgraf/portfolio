@@ -18,28 +18,28 @@ export interface Project {
 })
 export class FeaturedProjects {
   hoveredIndex: number | null = null;
-  
+
   projects: Project[] = [
     {
-      name: 'Pokedex',
-      technologies: ['JavaScript', 'RestAPI', 'HTML', 'CSS'],
-      previewImage: 'Comming soon',
-      githubLink: 'Comming soon',
-      liveTestLink: 'Comming soon',
+      name: 'Join',
+      technologies: ['HTML', 'CSS', 'JavaScript', 'Firebase'],
+      previewImage: 'assets/img/featured-projects/preview-projects/join.png',
+      githubLink: 'https://github.com/lucas-graf/join',
+      liveTestLink: 'https://lucas-graf.com/join/index.html',
     },
     {
-      name: 'Join',
-      technologies: ['JavaScript', 'Firebase', 'HTML', 'CSS'],
-      previewImage: 'Comming soon',
-      githubLink: 'Comming soon',
-      liveTestLink: 'Comming soon',
+      name: 'Pokedex',
+      technologies: ['HTML', 'CSS', 'JavaScript', 'RestAPI'],
+      previewImage: 'assets/img/featured-projects/preview-projects/pokedex.png',
+      githubLink: 'https://github.com/lucas-graf/pokedex',
+      liveTestLink: 'https://lucas-graf.com/pokedex/index.html',
     },
     {
       name: 'El Pollo Loco',
-      technologies: ['JavaScript', 'HTML', 'CSS'],
-      previewImage: 'Comming soon',
-      githubLink: 'Comming soon',
-      liveTestLink: 'Comming soon',
+      technologies: ['HTML', 'CSS', 'JavaScript'],
+      previewImage: 'assets/img/featured-projects/preview-projects/el-pollo-loco.png',
+      githubLink: 'https://github.com/lucas-graf/el-pollo-loco',
+      liveTestLink: 'https://lucas-graf.com/el-pollo-loco/index.html',
     },
   ];
 }
