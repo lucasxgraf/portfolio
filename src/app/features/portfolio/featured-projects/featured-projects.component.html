@@ -1,11 +1,33 @@
 <section id="featuredProjects">
   <div class="container">
-    <h3 class="featuredProjects_subtitle">{{ "FEATURED-PROJECTS.SUB_TITLE" | translate }}</h3>
-    <div class="featuredProjects_header">
-      <h1 class="featuredProjects_title">{{ "FEATURED-PROJECTS.TITLE" | translate }}</h1>
-      <p class="featuredProjects_description">{{ "FEATURED-PROJECTS.DESCRIPTION" | translate }}
+    <h3 class="featured_projects_subtitle">{{ "FEATURED-PROJECTS.SUB_TITLE" | translate }}</h3>
+    <div class="featured_projects_header">
+      <h1 class="featured_projects_title">{{ "FEATURED-PROJECTS.TITLE" | translate }}</h1>
+      <p class="featured_projects_description">{{ "FEATURED-PROJECTS.DESCRIPTION" | translate }}
       </p>
     </div>
-    
+
+    <div class="featured_projects_content">
+      <div class="featured_projects_list_container">
+        <div class="featured_projects_list">
+          @for (project of projects; track $index) {
+          <div class="featured_project_row" [class.active]="hoveredIndex === $index" (mouseenter)="hoveredIndex = $index"
+            (mouseleave)="hoveredIndex = null">
+            <div class="featured_project_info">
+              <h3>{{ project.name }} <img src="assets/img/featured-projects/arrow_outward.svg" alt="arrow"
+                  class="arrow"></h3>
+            </div>
+            <div class="featured_project_tech">
+              @for (tech of project.technologies; track $index) {
+              <span>
+                {{ tech }}{{ $index !== project.technologies.length - 1 ? ' | ' : '' }}
+              </span>
+              }
+            </div>
+          </div>
+          }
+        </div>
+      </div>
+    </div>
   </div>
 </section>
