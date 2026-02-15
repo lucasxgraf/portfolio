@@ -66,13 +66,12 @@ section {
       position: relative;
       isolation: isolate;
       height: 100%;
-      padding: clamp(2rem, 5vw, 4rem);
+      padding: 48px;
       display: flex;
+      justify-content: space-between;
       flex-direction: column;
-      justify-content: center;
-      gap: 32px;
+      gap: 24px;
 
-      // Unified Glassmorphism Style
       background: linear-gradient(135deg, rgba(28, 28, 28, 0.7) 0%, rgba(8, 70, 59, 0.3) 100%);
       backdrop-filter: blur(24px);
       -webkit-backdrop-filter: blur(24px);
@@ -80,7 +79,6 @@ section {
       border-radius: 40px;
       box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 
-      color: white;
       transform-origin: center top;
       transform-style: preserve-3d;
       will-change: transform, filter, opacity;
@@ -98,63 +96,71 @@ section {
       }
 
       .quote_icon {
-        font-family: $font-karla;
-        font-size: 12rem;
-        line-height: 1;
-        position: absolute;
-        top: -10px;
-        left: 20px;
-        opacity: 0.05;
-        font-weight: 800;
-        color: $color-accent;
+        opacity: 0.1;
         pointer-events: none;
+
+        img {
+          width: 80px;
+          height: auto;
+          object-fit: contain;
+        }
       }
 
       .feedback_text {
         font-family: $font-karla;
-        font-size: clamp(1.25rem, 2.5vw, 1.8rem);
-        line-height: 1.5;
+        font-size: 1.5rem;
+        line-height: 1.4;
         font-weight: 400;
-        margin: 0;
         position: relative;
-        z-index: 1;
-        color: rgba(255, 255, 255, 0.95);
+        z-index: 2;
       }
 
       .author {
         position: relative;
-        z-index: 1;
+        z-index: 2;
         display: flex;
-        flex-direction: column;
-        gap: 8px;
-        margin-top: 1rem;
+        align-items: flex-end;
+        justify-content: space-between;
+        gap: 16px;
 
-        h3 {
-          font-family: $font-karla;
-          font-size: clamp(1.5rem, 2vw, 1.8rem);
-          font-weight: 700;
-          color: $color-accent;
-          margin: 0;
+        .author_info {
+          display: flex;
+          flex-direction: column;
+          gap: 8px;
+
+          h3 {
+            font-family: $font-karla;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: $color-accent;
+          }
+
+          span {
+            color: $color-light-gray;
+            opacity: 0.8;
+          }
         }
 
-        span {
-          font-family: $font-fira;
-          font-size: 1.1rem;
-          color: rgba(255, 255, 255, 0.6);
-          letter-spacing: 0.05em;
+        .github_link {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          transition: transform $defaultDuration ease;
+
+          img {
+            object-fit: contain;
+          }
+
+          &:hover {
+            transform: scale(1.1);
+          }
         }
       }
 
       .number {
-        position: absolute;
-        bottom: 2rem;
-        right: 3rem;
-        font-family: $font-fira;
-        font-size: clamp(4rem, 8vw, 6rem);
+        font-size: 5rem;
         font-weight: 700;
-        letter-spacing: -0.05em;
-        opacity: 0.15;
-        color: white;
+        opacity: 0.1;
       }
     }
   }
