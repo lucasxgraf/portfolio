@@ -33,9 +33,33 @@
     "CTA_BUTTON": "Lets talk",
     "TOOLTIP": "I have a special interest in learning"
   },
-   "FEATURED-PROJECTS": {
+  "FEATURED-PROJECTS": {
     "SUB_TITLE": "Portfolio",
     "TITLE": "Featured Projects",
     "DESCRIPTION": "Explore a selection of my work - Interact with projects to see my skills in action."
-   }
+  },
+  "FEEDBACK": {
+    "SUB_TITLE": "Feedback",
+    "TITLE": "What my colleagues say about me",
+    "ITEMS": [
+      {
+        "NAME": "Maik Groth",
+        "PROJECT": "Join",
+        "TEXT": "Lucas is a highly motivated developer who always strives for the best solution. His ability to quickly learn and apply new technologies is impressive.",
+        "GITHUB_LINK": "https://github.com/croser93"
+      },
+      {
+        "NAME": "Leon Leuning",
+        "PROJECT": "Join",
+        "TEXT": "Lucas was very strong in team communication and helped structure and coordinate our collaboration. He demonstrated clear leadership qualities and brought structure to our workflow. Thanks to his high standards and attention to detail, we were able to raise the quality of both the design and the code and deliver a strong final product. He worked quickly and reliably, which helped a lot — especially as we approached the deadline. His careful way of working was also genuinely educational and helped me grow personally.",
+        "GITHUB_LINK": "https://github.com/213Leon213"
+      },
+      {
+        "NAME": "Tizian Borges Jost",
+        "PROJECT": "Kochwelt",
+        "TEXT": "Lucas has a sharp eye for detail and a deep understanding of frontend architectures. His contributions to our projects were always of the highest quality.",
+        "GITHUB_LINK": ""
+      }
+    ]
+  }
 }

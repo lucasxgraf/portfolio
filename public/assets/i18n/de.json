@@ -37,5 +37,29 @@
     "SUB_TITLE": "Portfolio",
     "TITLE": "Ausgewählte Projekte",
     "DESCRIPTION": "Entdecke eine Auswahl meiner Arbeit - Interagiere mit den Projekten, um meine Fähigkeiten in Aktion zu sehen."
+  },
+  "FEEDBACK": {
+    "SUB_TITLE": "Feedback",
+    "TITLE": "Was meine Kollegen über mich sagen",
+    "ITEMS": [
+      {
+        "NAME": "Maik Groth",
+        "PROJECT": "Join",
+        "TEXT": "Lucas ist ein hochmotivierter Entwickler, der immer nach der besten Lösung strebt. Seine Fähigkeit, neue Technologien schnell zu lernen und anzuwenden, ist beeindruckend.",
+        "GITHUB_LINK": "https://github.com/croser93"
+      },
+      {
+        "NAME": "Leon Leuning",
+        "PROJECT": "Join",
+        "TEXT": "Lucas war sehr stark in der teaminternen Kommunikation und hat die Zusammenarbeit strukturiert und koordiniert. Dabei zeigte er klare Führungsqualitäten und brachte Ordnung in unsere Arbeitsabläufe. Durch seinen hohen Qualitätsanspruch und Perfektionismus konnten wir Design und Code auf ein sehr hohes Niveau bringen und am Ende ein überzeugendes Produkt abliefern. Er arbeitete schnell und zuverlässig, was uns besonders in Richtung Abgabe enorm geholfen hat. Seine sorgfältige Arbeitsweise war zudem lehrreich und hat auch mich persönlich weitergebracht.",
+        "GITHUB_LINK": "https://github.com/213Leon213"
+      },
+      {
+        "NAME": "Tizian Borges Jost",
+        "PROJECT": "Kochwelt",
+        "TEXT": "Lucas hat einen scharfen Blick für Details und ein tiefes Verständnis für Frontend-Architekturen. Seine Beiträge zu unseren Projekten waren immer von höchster Qualität.",
+        "GITHUB_LINK": ""
+      }
+    ]
   }
 }
