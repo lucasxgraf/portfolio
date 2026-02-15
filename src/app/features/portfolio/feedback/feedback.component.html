@@ -1,0 +1,24 @@
+<section id="feedback">
+  <div class="container">
+    <div class="section_header">
+      <div class="section_subtitle">{{ 'FEEDBACK.SUB_TITLE' | translate }}</div>
+      <h1 class="section_title">{{ 'FEEDBACK.TITLE' | translate }}</h1>
+    </div>
+
+    <ul id="cards">
+     @for (feedback of feedbacks; track $index) {
+      <li class="card" [style.--index]="$index + 1">
+        <div class="card__content">
+          <span class="number">0{{ $index + 1 }}</span>
+          <div class="quote_icon">“</div>
+          <p class="feedback_text">{{ 'FEEDBACK.ITEMS.' + $index + '.TEXT' | translate }}</p>
+          <div class="author">
+            <h3>{{ 'FEEDBACK.ITEMS.' + $index + '.NAME' | translate }}</h3>
+            <span>{{ 'FEEDBACK.ITEMS.' + $index + '.PROJECT' | translate }}</span>
+          </div>
+        </div>
+      </li>
+    }
+    </ul>
+  </div>
+</section>

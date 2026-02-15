@@ -2,19 +2,24 @@ $font-karla: 'Karla', sans-serif;
 $font-fira: 'Fira Code', monospace;
 
 $color-light-gray: #D9D9D9;
-$color-accent:#3DCFB6;
+$color-accent: #3DCFB6;
 
 $defaultDuration: .3s;
 
+// Feedback Card Variables
+$card-height: clamp(25rem, 35vw, 35rem);
+$card-gap: clamp(2rem, 4vw, 4rem);
+$card-offset: 1.5rem;
+
 @mixin flex-center() {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 @mixin hideTapHighlightColor() {
 	//Prevent highlight colour when element is tapped
-	-webkit-tap-highlight-color: rgba(0,0,0,0);
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 @mixin hardwareAccel() {
@@ -24,5 +29,5 @@ $defaultDuration: .3s;
 
 @mixin improveAntiAlias() {
 	//Improve aliasing on mobile/tablet devices
-  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+	box-shadow: 0 0 1px rgba(0, 0, 0, 0);
 }
