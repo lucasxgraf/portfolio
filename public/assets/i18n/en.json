@@ -45,7 +45,7 @@
       {
         "NAME": "Maik Groth",
         "PROJECT": "Join",
-        "TEXT": "Lucas is a highly motivated developer who always strives for the best solution. His ability to quickly learn and apply new technologies is impressive.",
+        "TEXT": "Working with Lucas was highly productive and a true collaboration between equals. He works in a very structured and detail-oriented manner, which significantly improved the overall quality of our project. His execution was always clean and reliable, and he consistently provided solution-oriented ideas whenever challenges arose. A strong team player I would definitely work with again.",
         "GITHUB_LINK": "https://github.com/croser93"
       },
       {
@@ -61,5 +61,19 @@
         "GITHUB_LINK": ""
       }
     ]
+  },
+  "CONTACT-FORM": {
+    "SUB_TITLE": "Contact me",
+    "TITLE": "Let's work together",
+    "DESCRIPTION_TITLE": "Need to solve a problem?",
+    "DESCRIPTION": "Testestestestestestest",
+    "NAME_LABEL": "What's your name?",
+    "NAME_INPUT_PLACEHOLDER": "Let me know your name",
+    "EMAIL_LABEL": "What's your email address?",
+    "EMAIL_INPUT_PLACEHOLDER": "Let me know your email address",
+    "MESSAGE_LABEL": "How can I help you?",
+    "MESSAGE_INPUT_PLACEHOLDER": "Hey Lucas, i'm interested in ...",
+    "PRIVACY_POLICY": "I have read the privacy policy and agree to the processing of my data as specified.",
+    "SUBMIT_BUTTON": "Say Hello :)"
   }
 }

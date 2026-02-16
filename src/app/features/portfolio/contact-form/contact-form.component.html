@@ -1,0 +1,52 @@
+<section id="contactMe">
+  <div class="container">
+    <div class="contact_layout">
+      <div class="contact_intro">
+        <h3 class="contact_subtitle">{{ "CONTACT-FORM.SUB_TITLE" | translate }}</h3>
+        <h1 class="contact_title">{{ "CONTACT-FORM.TITLE" | translate }}</h1>
+        <p class="contact_description">{{ "CONTACT-FORM.DESCRIPTION_TITLE" | translate }}</p> <br>
+        <p class="contact_description">{{ "CONTACT-FORM.DESCRIPTION" | translate }}</p>
+      </div>
+
+      <form class="contact_form">
+        <div class="input_group">
+          <div class="input_info">
+            <label for="name">{{ "CONTACT-FORM.NAME_LABEL" | translate }}</label>
+          </div>
+          <div class="input_field">
+            <input type="text" id="name" [placeholder]="'CONTACT-FORM.NAME_INPUT_PLACEHOLDER' | translate" />
+          </div>
+        </div>
+
+        <div class="input_group">
+          <div class="input_info">
+            <label for="email">{{ "CONTACT-FORM.EMAIL_LABEL" | translate }}</label>
+          </div>
+          <div class="input_field">
+            <input type="email" id="email" [placeholder]="'CONTACT-FORM.EMAIL_INPUT_PLACEHOLDER' | translate" />
+          </div>
+        </div>
+
+        <div class="input_group">
+          <div class="input_info">
+            <label for="message">{{ "CONTACT-FORM.MESSAGE_LABEL" | translate }}</label>
+          </div>
+          <div class="input_field">
+            <textarea id="message" [placeholder]="'CONTACT-FORM.MESSAGE_INPUT_PLACEHOLDER' | translate" rows="2"></textarea>
+          </div>
+        </div>
+
+        <div class="form_footer">
+          <div class="privacy_policy">
+            <input type="checkbox" id="privacy" />
+            <label for="privacy">{{ "CONTACT-FORM.PRIVACY_POLICY" | translate }}</label>
+          </div>
+
+          <div class="submit_container">
+            <button type="submit" class="submit_btn btn">{{ "CONTACT-FORM.SUBMIT_BUTTON" | translate }}</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
