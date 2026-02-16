@@ -79,5 +79,11 @@
     "PRIVACY_POLICY": "Datenschutzbestimmungen",
     "PRIVACY_POLICY_TEXT1": "gelesen und stimme der Verarbeitung meiner Daten wie angegeben zu.",
     "SUBMIT_BUTTON": "Sag Hallo :)"
+  },
+  "FOOTER": {
+    "DEVELOPER": "Frontend Entwickler",
+    "LOCATION": "Leipzig, Deutschland",
+    "EMAIL": "Email",
+    "IMPRINT": "Impressum"
   }
 }
