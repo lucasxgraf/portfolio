@@ -66,14 +66,18 @@
     "SUB_TITLE": "Kontaktiere mich",
     "TITLE": "Lass uns zusammenarbeiten",
     "DESCRIPTION_TITLE": "Sie müssen ein Problem lösen?",
-    "DESCRIPTION": "lorem ipsum",
+    "DESCRIPTION": "Ich arbeite gerne an realen Projekten mit und bringe mich aktiv in neue Herausforderungen ein. Besonders reizt mich ein Umfeld, in dem ich Verantwortung übernehmen und mich Schritt für Schritt weiterentwickeln kann. Durch meinen Business-Background bringe ich eine strukturierte, lösungsorientierte Perspektive in technische Herausforderungen ein und denke über Code hinaus auch in Produkt- und Nutzerwert.",
+    "DESCRIPTION_CTA": "Wenn Sie einen Frontend Developer suchen, der mitdenkt, Verantwortung übernehmen möchte und langfristig wachsen will, sollten wir miteinander sprechen.",
+    "DESCRIPTION_CTA_TALK": "sollten wir miteinander sprechen.",
     "NAME_LABEL": "Wie ist Ihr Name?",
     "NAME_INPUT_PLACEHOLDER": "Lass mich Deinen Namen wissen",
     "EMAIL_LABEL": "Wie lautet Ihre E-Mail-Adresse?",
     "EMAIL_INPUT_PLACEHOLDER": "Lass mich Deine E-Mail-Adresse wissen",
     "MESSAGE_LABEL": "Wie kann ich Ihnen helfen?",
     "MESSAGE_INPUT_PLACEHOLDER": "Hey Lucas, ich bin interessiert an ...",
-    "PRIVACY_POLICY": "Ich habe die Datenschutzbestimmungen gelesen und stimme der Verarbeitung meiner Daten wie angegeben zu.",
+    "PRIVACY_POLICY_TEXT": "Ich habe die",
+    "PRIVACY_POLICY": "Datenschutzbestimmungen",
+    "PRIVACY_POLICY_TEXT1": "gelesen und stimme der Verarbeitung meiner Daten wie angegeben zu.",
     "SUBMIT_BUTTON": "Sag Hallo :)"
   }
 }
