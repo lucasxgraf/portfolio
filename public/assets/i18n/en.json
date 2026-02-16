@@ -45,7 +45,7 @@
       {
         "NAME": "Maik Groth",
         "PROJECT": "Join",
-        "TEXT": "Lucas is a highly motivated developer who always strives for the best solution. His ability to quickly learn and apply new technologies is impressive.",
+        "TEXT": "Working with Lucas was highly productive and a true collaboration between equals. He works in a very structured and detail-oriented manner, which significantly improved the overall quality of our project. His execution was always clean and reliable, and he consistently provided solution-oriented ideas whenever challenges arose. A strong team player I would definitely work with again.",
         "GITHUB_LINK": "https://github.com/croser93"
       },
       {
@@ -61,5 +61,23 @@
         "GITHUB_LINK": ""
       }
     ]
+  },
+  "CONTACT-FORM": {
+    "SUB_TITLE": "Contact me",
+    "TITLE": "Let's work together",
+    "DESCRIPTION_TITLE": "Need to solve a problem?",
+    "DESCRIPTION": "I enjoy contributing to real projects and getting involved in new challenges. I’m especially motivated by environments where I can take ownership and grow step by step.  With my business background, I bring a structured, solution-oriented perspective to technical challenges and think beyond code in terms of product and user value.",
+    "DESCRIPTION_CTA": "If you’re looking for a frontend developer who thinks ahead, takes ownership and wants to grow long-term -",
+    "DESCRIPTION_CTA_TALK": " we should talk!",
+    "NAME_LABEL": "What's your name?",
+    "NAME_INPUT_PLACEHOLDER": "Let me know your name",
+    "EMAIL_LABEL": "What's your email address?",
+    "EMAIL_INPUT_PLACEHOLDER": "Let me know your email address",
+    "MESSAGE_LABEL": "How can I help you?",
+    "MESSAGE_INPUT_PLACEHOLDER": "Hey Lucas, i'm interested in ...",
+    "PRIVACY_POLICY_TEXT": "I have read the",
+    "PRIVACY_POLICY": "privacy policy",
+    "PRIVACY_POLICY_TEXT1": "and agree to the processing of my data as specified.",
+    "SUBMIT_BUTTON": "Say Hello :)"
   }
 }
