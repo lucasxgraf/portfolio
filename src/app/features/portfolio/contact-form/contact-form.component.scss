@@ -117,9 +117,6 @@ section {
         font-size: 2rem;
         font-weight: 600;
         transition: all $defaultDuration ease;
-        display: flex;
-        align-items: center;
-        gap: 16px;
         color: $color-accent;
         white-space: nowrap;
       }
@@ -206,10 +203,24 @@ section {
     .submit_btn {
       border-color: $color-accent;
       color: $color-accent;
+      width: fit-content;
+      transition: all $defaultDuration ease;
 
       &:hover {
-        background: rgba($color-accent, 0.1);
-        transform: scale(1.05);
+        background-color: $color-accent;
+        border-color: $color-accent;
+        color: #1C1C1C;
+      }
+
+      &:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+
+        &:hover {
+          background-color: transparent;
+          color: white;
+          border-color: white;
+        }
       }
     }
   }
