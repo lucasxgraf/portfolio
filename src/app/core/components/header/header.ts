@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { LanguageService } from '../../services/language.service';
 import { TranslateModule } from '@ngx-translate/core';
+import { RouterLink } from "@angular/router";
 
 @Component({
   selector: 'app-header',
-  imports: [TranslateModule],
+  imports: [TranslateModule, RouterLink],
   templateUrl: './header.html',
   styleUrl: './header.scss',
 })

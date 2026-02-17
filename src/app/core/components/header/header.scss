@@ -1,12 +1,14 @@
 @use '../../../../styles/variables' as *;
 
 header {
+  position: absolute;
   width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   height: 104px;
   padding: 0 32px;
+  z-index: 999;
   
   .header_left {
     @include flex-center();

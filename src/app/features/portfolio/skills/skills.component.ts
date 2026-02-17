@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
+import { RouterLink } from "@angular/router";
 
 @Component({
   selector: 'app-skills',
-  imports: [TranslateModule],
+  imports: [TranslateModule, RouterLink],
   templateUrl: './skills.component.html',
   styleUrl: './skills.component.scss',
 })
