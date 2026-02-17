@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
 import { Header } from '../../../core/components/header/header';
+import { RouterLink } from "@angular/router";
 
 @Component({
   selector: 'app-hero',
   imports: [TranslateModule,
-    Header
-  ],
+    Header, RouterLink],
   templateUrl: './hero.component.html',
   styleUrl: './hero.component.scss',
 })

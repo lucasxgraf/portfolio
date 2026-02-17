@@ -1,54 +1,56 @@
 <section id="hero">
   <div class="header_gradient"></div>
-    <div class="container">
-      <app-header></app-header>
+  <div class="container">
+    <div class="scroll_indicator">
+      <a class="scroll_icon">
+        <span class="arrow">↓</span>
+      </a>
+      <div class="scroll_line"></div>
+    </div>
 
-      <div class="scroll_indicator">
-        <a class="scroll_icon">
-          <span class="arrow">↓</span>
-        </a>
-        <div class="scroll_line"></div>
-      </div>
-
-      <div class="hero_content">
-        <h2>{{ 'HERO.JOB_TITLE' | translate }}</h2>
-        <div class="hero_title_layout">
-          <h1>Lucas Graf</h1>
-          <div class="hero_title_btn">
+    <div class="hero_content">
+      <h2>{{ 'HERO.JOB_TITLE' | translate }}</h2>
+      <div class="hero_title_layout">
+        <h1>Lucas Graf</h1>
+        <div class="hero_title_btn">
+          <a routerLink="/" fragment="featuredProjects">
             <button class="btn">{{ 'HERO.MY_PROJECTS' | translate }}</button>
+          </a>
+          <a routerLink="/" fragment="contactMe">
             <button class="btn">{{ 'HERO.CONTACT_ME' | translate }}</button>
-          </div>
-        </div>
-      </div>
-
-      <div class="social_sidebar">
-        <a href="mailto:contact@lucasgraf.com" class="email">contact@lucasgraf.com</a>
-        <div class="social_icons">
-          <a href="https://github.com/lucasxgraf" target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="social_icon">
-            <img src="assets/img/hero/github-icon.png" alt="github icon" class="main_icon">
-            <img src="assets/img/hero/github.png" alt="hover github icon" class="hover_icon">
-          </a>
-          <a href="https://linkedin.com/in/lucas-graf" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="social_icon">
-            <img src="assets/img/hero/linkedin-icon.png" alt="linkedin icon" class="main_icon">
-            <img src="assets/img/hero/linkedin.png" alt="hover linkedin icon" class="hover_icon">
           </a>
         </div>
-        <div class="sidebar_line"></div>
       </div>
     </div>
 
-      <div class="hero_marquee">
-        <div class="marquee_track">
-          @for (i of [1, 2]; track $index) {
-          <div class="marquee_content" [attr.aria-hidden]="i === 2">
-            @for (item of marqueeItems; track $index) {
-            <div class="marquee_item">
-              <img src="assets/img/hero/radio-button.png" alt="radio button">
-              <p>{{ item | translate }}</p>
-            </div>
-            }
-          </div>
-          }
-        </div>
+    <div class="social_sidebar">
+      <a href="mailto:contact@lucasgraf.com" class="email">contact@lucasgraf.com</a>
+      <div class="social_icons">
+        <a href="https://github.com/lucasxgraf" target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="social_icon">
+          <img src="assets/img/hero/github-icon.png" alt="github icon" class="main_icon">
+          <img src="assets/img/hero/github.png" alt="hover github icon" class="hover_icon">
+        </a>
+        <a href="https://linkedin.com/in/lucas-graf" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="social_icon">
+          <img src="assets/img/hero/linkedin-icon.png" alt="linkedin icon" class="main_icon">
+          <img src="assets/img/hero/linkedin.png" alt="hover linkedin icon" class="hover_icon">
+        </a>
       </div>
+      <div class="sidebar_line"></div>
+    </div>
+  </div>
+
+  <div class="hero_marquee">
+    <div class="marquee_track">
+      @for (i of [1, 2]; track $index) {
+      <div class="marquee_content" [attr.aria-hidden]="i === 2">
+        @for (item of marqueeItems; track $index) {
+        <div class="marquee_item">
+          <img src="assets/img/hero/radio-button.png" alt="radio button">
+          <p>{{ item | translate }}</p>
+        </div>
+        }
+      </div>
+      }
+    </div>
+  </div>
 </section>

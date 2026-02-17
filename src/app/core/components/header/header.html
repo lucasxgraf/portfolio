@@ -8,10 +8,12 @@
       </button>
     </div>
     <nav>
-      <a href="#" class="hover_shadow">{{ 'NAV.ABOUT' | translate }}</a>
-      <a href="#" class="hover_shadow">{{ 'NAV.SKILLS' | translate }}</a>
-      <a href="#" class="hover_shadow">{{ 'NAV.PROJECTS' | translate }}</a>
+      <a routerLink="/" fragment="aboutMe" class="hover_shadow">{{ 'NAV.ABOUT' | translate }}</a>
+      <a routerLink="/" fragment="skills" class="hover_shadow">{{ 'NAV.SKILLS' | translate }}</a>
+      <a routerLink="/" fragment="featuredProjects" class="hover_shadow">{{ 'NAV.PROJECTS' | translate }}</a>
     </nav>
   </div>
-  <img src="assets/img/logo/logo.png" alt="Logo Lucas Graf">
+  <a routerLink="/" fragment="hero">
+    <img src="assets/img/logo/logo.png" alt="Logo Lucas Graf">
+  </a>
 </header>

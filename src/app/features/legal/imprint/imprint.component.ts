@@ -3,9 +3,9 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-imprint',
   imports: [],
-  templateUrl: './imprint.html',
-  styleUrl: './imprint.scss',
+  templateUrl: './imprint.component.html',
+  styleUrl: './imprint.component.scss',
 })
-export class Imprint {
+export class ImprintComponent {
 
 }
