@@ -45,11 +45,14 @@
         <div class="form_footer">
           <div class="privacy_policy">
             <input type="checkbox" id="privacy" />
-            <label for="privacy">
+            <label for="privacy"></label>
+            <div>
               {{ "CONTACT-FORM.PRIVACY_POLICY_TEXT" | translate }}
-              <span>{{ "CONTACT-FORM.PRIVACY_POLICY" | translate }}</span>
+              <a routerLink="/privacy">  
+                <span>{{ "CONTACT-FORM.PRIVACY_POLICY" | translate }}</span>
+              </a>
               {{ "CONTACT-FORM.PRIVACY_POLICY_TEXT1" | translate }}
-            </label>
+            </div>
           </div>
 
           <div class="submit_container">

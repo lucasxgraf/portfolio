@@ -161,21 +161,19 @@ section {
 
   .privacy_policy {
     display: flex;
-    align-items: flex-start;
-    gap: 1rem;
-    cursor: pointer;
+    align-items: center;
+    gap: 16px;
 
     input[type="checkbox"] {
       appearance: none;
       -webkit-appearance: none;
-      width: 1.2rem;
-      height: 1.2rem;
+      width: 24px;
+      height: 24px;
       cursor: pointer;
       background-image: url('/assets/img/contact-form/checkbox-default.png');
       background-size: contain;
       background-repeat: no-repeat;
       background-position: center;
-      margin-top: 0.2rem;
       flex-shrink: 0;
       transition: background-image $defaultDuration ease;
 
@@ -193,6 +191,10 @@ section {
 
     span {
       color: $color-accent;
+
+      &:hover {
+        text-decoration: underline;
+      }
     }
   }
 
