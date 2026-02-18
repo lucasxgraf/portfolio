@@ -1,5 +1,15 @@
 @use '../src/styles/variables' as *;
 
+body:has(app-imprint),
+body:has(app-privacy) {
+  background: linear-gradient(55.22deg, #1C1C1C 36.26%, #08463B 93.28%);
+  min-height: 100vh;
+
+  app-footer footer {
+    background-color: transparent !important;
+  }
+}
+
 * {
   margin: 0;
   padding: 0;
