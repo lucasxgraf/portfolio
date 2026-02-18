@@ -183,14 +183,14 @@ section {
       .hover_icon {
         opacity: 0;
       }
-      
+
       &:hover {
         transform: scale(1.1);
-        
+
         .main_icon {
           opacity: 0;
         }
-        
+
         .hover_icon {
           opacity: 1;
         }
@@ -215,9 +215,9 @@ section {
   right: 0;
   height: 60px;
   background: linear-gradient(90deg,
-    rgba(#08463B, 0.8) 0%,
-    rgba(#1C1C1C, 0.9) 50%,
-    rgba(#08463B, 0.8) 100%);
+      rgba(#08463B, 0.8) 0%,
+      rgba(#1C1C1C, 0.9) 50%,
+      rgba(#08463B, 0.8) 100%);
   border: 1px solid rgba($color-accent, 0.2);
   overflow: hidden;
   rotate: -3deg;

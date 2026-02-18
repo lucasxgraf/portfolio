@@ -85,5 +85,10 @@
     "LOCATION": "Leipzig, Deutschland",
     "EMAIL": "Email",
     "IMPRINT": "Impressum"
+  },
+  "IMPRINT": {
+    "HEADLINE": "Impressum",
+    "TITLE": "Angaben gemäß §5 DDG",
+    "CONTACT": "Kontakt"
   }
 }

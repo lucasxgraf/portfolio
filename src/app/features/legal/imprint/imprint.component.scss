@@ -1,0 +1,43 @@
+@use '../../../../styles/variables' as *;
+
+section {
+  @include flex-center();
+  height: calc(100vh - 174px);
+  width: 100%;
+  padding-top: 104px;
+  overflow: hidden;
+
+  .imprint_header {
+    margin-bottom: 64px;
+    text-align: center;
+
+    .imprint_title {
+      font-size: 4rem;
+      font-weight: 500;
+      color: $color-accent;
+    }
+  }
+}
+
+.imprint_content {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+
+  .imprint_group {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    h2 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: $color-accent;
+    }
+
+    p {
+      font-family: $font-karla;
+      line-height: 1.4;
+    }
+  }
+}
