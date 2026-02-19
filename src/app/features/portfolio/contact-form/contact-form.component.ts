@@ -16,11 +16,13 @@ import { TranslateModule } from '@ngx-translate/core';
 export class ContactFormComponent {
 
   http = inject(HttpClient);
+  mailSent = false;
 
   contactData = {
     name: "",
     email: "",
     message: "",
+    privacy: false,
   }
 
   post = {
@@ -39,8 +41,9 @@ export class ContactFormComponent {
       this.http.post(this.post.endPoint, this.post.body(this.contactData))
         .subscribe({
           next: (response) => {
-            console.log(response);
+            this.mailSent = true;
             ngForm.resetForm();
+            setTimeout(() => this.mailSent = false, 3000);
           },
           error: (error) => {
             console.error(error);
