@@ -82,7 +82,8 @@
     "PRIVACY_POLICY": "Datenschutzbestimmungen",
     "PRIVACY_POLICY_TEXT1": "gelesen und stimme der Verarbeitung meiner Daten wie angegeben zu.",
     "PRIVACY_POLICY_ERROR": "Bitte bestätige die Datenschutzerklärung.",
-    "SUBMIT_BUTTON": "Sag Hallo :)"
+    "SUBMIT_BUTTON": "Sag Hallo :)",
+    "SUCCESS_FEEDBACK": "Vielen Dank für Deine Nachricht! Ich habe Deine Nachricht erhalten und werde mich schnellstmöglich bei Dir zurückmelden."
   },
   "FOOTER": {
     "DEVELOPER": "Frontend Entwickler",
