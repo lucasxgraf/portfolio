@@ -9,55 +9,83 @@
           {{ "CONTACT-FORM.DESCRIPTION" | translate }}
           <br>
           <br>
-          {{ "CONTACT-FORM.DESCRIPTION_CTA" | translate }} 
+          {{ "CONTACT-FORM.DESCRIPTION_CTA" | translate }}
           <span>{{ "CONTACT-FORM.DESCRIPTION_CTA_TALK" | translate }}</span>
         </p>
       </div>
 
-      <form class="contact_form">
-        <div class="input_group">
+      <form class="contact_form" (ngSubmit)="onSubmit(contactForm)" #contactForm="ngForm" novalidate>
+        <div class="input_group" [class.error]="name.invalid && name.touched">
           <div class="input_info">
             <label for="name">{{ "CONTACT-FORM.NAME_LABEL" | translate }}</label>
           </div>
           <div class="input_field">
-            <input type="text" id="name" [placeholder]="'CONTACT-FORM.NAME_INPUT_PLACEHOLDER' | translate" />
+            <input #name="ngModel" [(ngModel)]="contactData.name" 
+              [ngModelOptions]="{ updateOn: 'blur' }"
+              type="text" id="name" name="name"
+              [placeholder]="'CONTACT-FORM.NAME_INPUT_PLACEHOLDER' | translate" required />
+            @if (name.invalid && name.touched) {
+              <span class="error_message">{{ "CONTACT-FORM.NAME_INPUT_ERROR" | translate }}</span>
+            }
           </div>
         </div>
 
-        <div class="input_group">
+        <div class="input_group" [class.error]="email.invalid && email.touched">
           <div class="input_info">
             <label for="email">{{ "CONTACT-FORM.EMAIL_LABEL" | translate }}</label>
           </div>
           <div class="input_field">
-            <input type="email" id="email" [placeholder]="'CONTACT-FORM.EMAIL_INPUT_PLACEHOLDER' | translate" />
+            <input #email="ngModel" [(ngModel)]="contactData.email" 
+              [ngModelOptions]="{ updateOn: 'blur' }"
+              type="email" id="email" name="email"
+              [placeholder]="'CONTACT-FORM.EMAIL_INPUT_PLACEHOLDER' | translate"
+              pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}" required />
+            @if (email.invalid && email.touched) {
+              <span class="error_message">{{ "CONTACT-FORM.EMAIL_INPUT_ERROR" | translate }}</span>
+            }
           </div>
-        </div>  
+        </div>
 
-        <div class="input_group">
+        <div class="input_group" [class.error]="message.invalid && message.touched && !message.disabled">
           <div class="input_info">
             <label for="message">{{ "CONTACT-FORM.MESSAGE_LABEL" | translate }}</label>
           </div>
           <div class="input_field">
-            <textarea id="message" [placeholder]="'CONTACT-FORM.MESSAGE_INPUT_PLACEHOLDER' | translate" rows="4"></textarea>
+            <textarea #message="ngModel" [(ngModel)]="contactData.message" id="message" name="message"
+              [placeholder]="'CONTACT-FORM.MESSAGE_INPUT_PLACEHOLDER' | translate" rows="3" required></textarea>
+            @if (message.invalid && message.touched && !message.disabled) {
+            <span class="error_message">{{ "CONTACT-FORM.MESSAGE_INPUT_ERROR" | translate }}</span>
+            }
           </div>
         </div>
 
         <div class="form_footer">
-          <div class="privacy_policy">
-            <input type="checkbox" id="privacy" />
-            <label for="privacy"></label>
-            <div>
-              {{ "CONTACT-FORM.PRIVACY_POLICY_TEXT" | translate }}
-              <a routerLink="/privacy">  
-                <span>{{ "CONTACT-FORM.PRIVACY_POLICY" | translate }}</span>
-              </a>
-              {{ "CONTACT-FORM.PRIVACY_POLICY_TEXT1" | translate }}
+          <div class="privacy_container">
+            <div class="privacy_policy">
+              <input #privacy="ngModel" [(ngModel)]="contactData.privacy" (change)="privacy.control.markAsTouched()" type="checkbox" id="privacy" name="privacy" required />
+              <label for="privacy"></label>
+              <div class="privacy_text">
+                {{ "CONTACT-FORM.PRIVACY_POLICY_TEXT" | translate }}
+                <a routerLink="/privacy"><span>{{ "CONTACT-FORM.PRIVACY_POLICY" | translate }}</span></a>
+                {{ "CONTACT-FORM.PRIVACY_POLICY_TEXT1" | translate }}
+              </div>
             </div>
+            @if (privacy.invalid && privacy.touched) {
+              <span class="error_message privacy_error">{{ "CONTACT-FORM.PRIVACY_POLICY_ERROR" | translate }}</span>
+            }
           </div>
 
           <div class="submit_container">
-            <button type="submit" class="submit_btn btn">{{ "CONTACT-FORM.SUBMIT_BUTTON" | translate }}</button>
+            <button type="submit" value="Submit" class="submit_btn btn" [disabled]="contactForm.invalid">{{ "CONTACT-FORM.SUBMIT_BUTTON" | translate
+              }}</button>
           </div>
+
+          @if (mailSent) {
+            <div class="success_message">
+              {{ "CONTACT-FORM.SUCCESS_FEEDBACK" | translate }}
+            </div>
+          }
+
         </div>
       </form>
     </div>

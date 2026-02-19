@@ -1,15 +1,55 @@
-import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Component, inject } from '@angular/core';
+import { FormsModule, NgForm } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-contact-form',
   imports: [TranslateModule,
-    RouterLink
+    RouterLink,
+    FormsModule
   ],
   templateUrl: './contact-form.component.html',
   styleUrl: './contact-form.component.scss',
 })
 export class ContactFormComponent {
 
+  http = inject(HttpClient);
+  mailSent = false;
+
+  contactData = {
+    name: "",
+    email: "",
+    message: "",
+    privacy: false,
+  }
+
+  post = {
+    endPoint: 'https://lucasgraf.com/sendMail.php',
+    body: (payload: any) => JSON.stringify(payload),
+    options: {
+      headers: {
+        'Content-Type': 'text/plain',
+        responseType: 'text',
+      },
+    },
+  };
+
+  onSubmit(ngForm: NgForm) {
+    if (ngForm.submitted && ngForm.form.valid) {
+      this.http.post(this.post.endPoint, this.post.body(this.contactData))
+        .subscribe({
+          next: (response) => {
+            this.mailSent = true;
+            ngForm.resetForm();
+            setTimeout(() => this.mailSent = false, 3000);
+          },
+          error: (error) => {
+            console.error(error);
+          },
+          complete: () => console.info('send post complete'),
+        });
+      }
+    }
 }

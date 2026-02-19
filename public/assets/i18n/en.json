@@ -71,13 +71,17 @@
     "DESCRIPTION_CTA_TALK": " we should talk!",
     "NAME_LABEL": "What's your name?",
     "NAME_INPUT_PLACEHOLDER": "Let me know your name",
+    "NAME_INPUT_ERROR": "Please enter your name",
     "EMAIL_LABEL": "What's your email address?",
     "EMAIL_INPUT_PLACEHOLDER": "Let me know your email address",
+    "EMAIL_INPUT_ERROR": "Please enter a valid email",
     "MESSAGE_LABEL": "How can I help you?",
     "MESSAGE_INPUT_PLACEHOLDER": "Hey Lucas, i'm interested in ...",
+    "MESSAGE_INPUT_ERROR": "Please enter your message",
     "PRIVACY_POLICY_TEXT": "I have read the",
     "PRIVACY_POLICY": "privacy policy",
     "PRIVACY_POLICY_TEXT1": "and agree to the processing of my data as specified.",
+    "PRIVACY_POLICY_ERROR": "Please accept the privacy policy.",
     "SUBMIT_BUTTON": "Say Hello :)"
   },
   "FOOTER": {
