@@ -17,6 +17,7 @@ export class ContactFormComponent {
 
   http = inject(HttpClient);
   mailSent = false;
+  isSending = false;
 
   contactData = {
     name: "",
@@ -38,10 +39,12 @@ export class ContactFormComponent {
 
   onSubmit(ngForm: NgForm) {
     if (ngForm.submitted && ngForm.form.valid) {
+      this.isSending = true;
       this.http.post(this.post.endPoint, this.post.body(this.contactData))
         .subscribe({
           next: (response) => {
             this.mailSent = true;
+            this.isSending = false;
             ngForm.resetForm();
             setTimeout(() => this.mailSent = false, 3000);
           },
