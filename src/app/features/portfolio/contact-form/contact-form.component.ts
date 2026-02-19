@@ -38,9 +38,9 @@ export class ContactFormComponent {
   };
 
   onSubmit(ngForm: NgForm) {
-    if (ngForm.submitted && ngForm.form.valid) {
+    if (ngForm.submitted && ngForm.form.valid && !this.isSending) {
       this.isSending = true;
-      this.http.post(this.post.endPoint, this.post.body(this.contactData))
+      this.http.post(this.post.endPoint, this.contactData, this.post.options)
         .subscribe({
           next: (response) => {
             this.isSending = false;
