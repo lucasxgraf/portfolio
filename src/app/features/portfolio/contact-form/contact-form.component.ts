@@ -46,7 +46,7 @@ export class ContactFormComponent {
             this.mailSent = true;
             this.isSending = false;
             ngForm.resetForm();
-            setTimeout(() => this.mailSent = false, 3000);
+            setTimeout(() => this.mailSent = false, 4000);
           },
           error: (error) => {
             console.error(error);
