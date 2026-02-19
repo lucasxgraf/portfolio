@@ -43,10 +43,12 @@ export class ContactFormComponent {
       this.http.post(this.post.endPoint, this.post.body(this.contactData))
         .subscribe({
           next: (response) => {
-            this.mailSent = true;
             this.isSending = false;
+            this.mailSent = true;
             ngForm.resetForm();
-            setTimeout(() => this.mailSent = false, 4000);
+            setTimeout(() => { 
+              this.mailSent = false; 
+            }, 4000);
           },
           error: (error) => {
             console.error(error);
