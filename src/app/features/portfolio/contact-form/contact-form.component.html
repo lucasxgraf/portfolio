@@ -62,7 +62,7 @@
         <div class="form_footer">
           <div class="privacy_container">
             <div class="privacy_policy">
-              <input #privacy="ngModel" [(ngModel)]="contactData.privacy" type="checkbox" id="privacy" name="privacy" required />
+              <input #privacy="ngModel" [(ngModel)]="contactData.privacy" (change)="privacy.control.markAsTouched()" type="checkbox" id="privacy" name="privacy" required />
               <label for="privacy"></label>
               <div class="privacy_text">
                 {{ "CONTACT-FORM.PRIVACY_POLICY_TEXT" | translate }}
