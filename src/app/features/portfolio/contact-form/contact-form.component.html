@@ -14,13 +14,16 @@
         </p>
       </div>
 
-      <form class="contact_form">
+      <form class="contact_form" (ngSubmit)="onSubmit(contactForm)" #contactForm="ngForm">
         <div class="input_group">
           <div class="input_info">
             <label for="name">{{ "CONTACT-FORM.NAME_LABEL" | translate }}</label>
           </div>
           <div class="input_field">
-            <input type="text" id="name" [placeholder]="'CONTACT-FORM.NAME_INPUT_PLACEHOLDER' | translate" />
+            <input #name="ngModel" [(ngModel)]="contactData.name" type="text" id="name" name="name" [placeholder]="'CONTACT-FORM.NAME_INPUT_PLACEHOLDER' | translate" required/>
+            @if (!name.valid && name.touched && !name.disabled) {
+              <span>Please enter your name</span>
+            }
           </div>
         </div>
 
@@ -29,7 +32,10 @@
             <label for="email">{{ "CONTACT-FORM.EMAIL_LABEL" | translate }}</label>
           </div>
           <div class="input_field">
-            <input type="email" id="email" [placeholder]="'CONTACT-FORM.EMAIL_INPUT_PLACEHOLDER' | translate" />
+            <input #email="ngModel" [(ngModel)]="contactData.email" type="email" id="email" name="email" [placeholder]="'CONTACT-FORM.EMAIL_INPUT_PLACEHOLDER' | translate" pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}" required/>
+            @if (!email.valid && email.touched && !email.disabled) {
+              <span>Please enter a valid email</span>
+            }
           </div>
         </div>  
 
@@ -38,7 +44,10 @@
             <label for="message">{{ "CONTACT-FORM.MESSAGE_LABEL" | translate }}</label>
           </div>
           <div class="input_field">
-            <textarea id="message" [placeholder]="'CONTACT-FORM.MESSAGE_INPUT_PLACEHOLDER' | translate" rows="4"></textarea>
+            <textarea #message="ngModel" [(ngModel)]="contactData.message" id="message" name="message" [placeholder]="'CONTACT-FORM.MESSAGE_INPUT_PLACEHOLDER' | translate" rows="4" required></textarea>
+            @if (!message.valid && message.touched && !message.disabled) {
+              <span>Please enter a message</span>
+            }
           </div>
         </div>
 
@@ -56,7 +65,7 @@
           </div>
 
           <div class="submit_container">
-            <button type="submit" class="submit_btn btn">{{ "CONTACT-FORM.SUBMIT_BUTTON" | translate }}</button>
+            <button type="submit" value="Submit" class="submit_btn btn">{{ "CONTACT-FORM.SUBMIT_BUTTON" | translate }}</button>
           </div>
         </div>
       </form>
