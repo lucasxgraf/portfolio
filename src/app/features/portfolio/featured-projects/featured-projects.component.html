@@ -12,7 +12,7 @@
         <div class="featured_projects_list">
           @for (project of projects; track $index) {
           <div class="featured_project_row" [class.active]="hoveredIndex === $index"
-            (mouseenter)="hoveredIndex = $index" (mouseleave)="hoveredIndex = null">
+            (mouseenter)="hoveredIndex = $index" (mouseleave)="hoveredIndex = null" (click)="openDialog($index)">
             <div class="featured_project_info">
               <h3>{{ project.name }} <img src="assets/img/featured-projects/arrow_outward.svg" alt="arrow"
                   class="arrow"></h3>
@@ -20,7 +20,7 @@
             <div class="featured_project_tech">
               @for (tech of project.technologies; track $index) {
               <span>
-                {{ tech }}{{ $index !== project.technologies.length - 1 ? ' | ' : '' }}
+                {{ tech.name }}{{ $index !== project.technologies.length - 1 ? ' | ' : '' }}
               </span>
               }
             </div>
@@ -41,4 +41,59 @@
       </div>
     </div>
   </div>
+
+  <!-- Project Detail Dialog -->
+  @if (selectedProject) {
+  <div class="dialog_overlay" (click)="onOverlayClick($event)">
+    <div class="dialog_card">
+      <button class="dialog_close" (click)="closeDialog()" aria-label="Close dialog">×</button>
+
+      <div class="dialog_content">
+        <div class="dialog_left">
+          <span class="dialog_project_number">{{ formattedProjectNumber }}</span>
+          <h2 class="dialog_project_name">{{ selectedProject.name }}</h2>
+
+          <h4 class="dialog_question">{{ "FEATURED-PROJECTS.DIALOG.QUESTION" | translate }}</h4>
+          <p class="dialog_description">{{ selectedProject.descriptionKey | translate }}</p>
+
+          <div class="dialog_technologies">
+            @for (tech of selectedProject.technologies; track $index) {
+            <div class="dialog_tech_badge">
+              <img [src]="tech.icon" [alt]="tech.name" class="tech_icon">
+              <span>{{ tech.name }}</span>
+            </div>
+            }
+          </div>
+
+          <div class="dialog_actions">
+            <a [href]="selectedProject.githubLink" target="_blank" rel="noopener noreferrer" class="dialog_btn">
+              {{ "FEATURED-PROJECTS.DIALOG.GITHUB" | translate }}
+              <img src="assets/img/featured-projects/arrow_outward.svg" alt="arrow" class="btn_arrow">
+            </a>
+            <a [href]="selectedProject.liveTestLink" target="_blank" rel="noopener noreferrer"
+              class="dialog_btn dialog_btn_outline">
+              {{ "FEATURED-PROJECTS.DIALOG.LIVE_TEST" | translate }}
+              <img src="assets/img/featured-projects/arrow_outward.svg" alt="arrow" class="btn_arrow">
+            </a>
+          </div>
+        </div>
+
+        <div class="dialog_right">
+          <div class="dialog_preview_wrapper">
+            <img [src]="selectedProject.previewImage" [alt]="selectedProject.name" class="dialog_preview_image">
+          </div>
+        </div>
+      </div>
+
+      <div class="dialog_navigation">
+        <button class="dialog_nav_link" (click)="prevProject()">
+          ← {{ "FEATURED-PROJECTS.DIALOG.PREV_PROJECT" | translate }}
+        </button>
+        <button class="dialog_nav_link" (click)="nextProject()">
+          {{ "FEATURED-PROJECTS.DIALOG.NEXT_PROJECT" | translate }} →
+        </button>
+      </div>
+    </div>
+  </div>
+  }
 </section>

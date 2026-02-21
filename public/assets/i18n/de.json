@@ -36,7 +36,25 @@
   "FEATURED-PROJECTS": {
     "SUB_TITLE": "Portfolio",
     "TITLE": "Ausgewählte Projekte",
-    "DESCRIPTION": "Entdecke eine Auswahl meiner Arbeit - Interagiere mit den Projekten, um meine Fähigkeiten in Aktion zu sehen."
+    "DESCRIPTION": "Entdecke eine Auswahl meiner Arbeit - Interagiere mit den Projekten, um meine Fähigkeiten in Aktion zu sehen.",
+    "DIALOG": {
+      "QUESTION": "Worum geht es in diesem Projekt?",
+      "GITHUB": "GitHub",
+      "LIVE_TEST": "Live Test",
+      "NEXT_PROJECT": "Nächstes Projekt",
+      "PREV_PROJECT": "Vorheriges Projekt"
+    },
+    "PROJECTS": {
+      "JOIN": {
+        "DESCRIPTION": "Webbasierte Kanban-App für Aufgabenverwaltung: Nutzer können Aufgaben in interaktiven Listen erstellen, organisieren und verfolgen – ideal für Einzelpersonen oder Teams."
+      },
+      "POKEDEX": {
+        "DESCRIPTION": "Eine Pokédex-Webanwendung, die Daten aus der PokéAPI bezieht: Durchsuche, finde und betrachte detaillierte Statistiken aller Pokémon-Generationen."
+      },
+      "EL_POLLO_LOCO": {
+        "DESCRIPTION": "Ein 2D-Jump-and-Run-Browserspiel mit objektorientiertem JavaScript: Besiege Gegner, sammle Items und erreiche den Endboss."
+      }
+    }
   },
   "FEEDBACK": {
     "SUB_TITLE": "Feedback",
