@@ -111,6 +111,10 @@ body:has(app-privacy) {
   height: 100%;
   display: flex;
   flex-direction: column;
+
+  @media (max-width: 450px) {
+    padding: 0 16px;
+  }
 }
 
 .btn {
