@@ -17,9 +17,22 @@ footer {
       height: 126px;
       width: 100%;
 
+      @media (max-width: 800px) {
+        flex-direction: column;
+        height: auto;
+        padding: 24px 0;
+        gap: 32px;
+        text-align: center;
+      }
+
       .logo_and_text {
         display: flex;
         flex-direction: column;
+
+        @media (max-width: 800px) {
+          align-items: center;
+          order: 1;
+        }
 
         img {
           width: 200px;
@@ -37,6 +50,10 @@ footer {
       }
 
       .copyright {
+        @media (max-width: 800px) {
+          order: 3;
+        }
+
         p {
           font-size: 1.25rem;
           color: $color-accent;
@@ -46,7 +63,12 @@ footer {
       .footer_links {
         display: flex;
         flex-direction: column;
-        gap: 8px;
+        gap: 16px;
+
+        @media (max-width: 800px) {
+          align-items: center;
+          order: 2;
+        }
 
         a {
           position: relative;
