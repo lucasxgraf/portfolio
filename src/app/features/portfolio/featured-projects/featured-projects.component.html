@@ -42,7 +42,6 @@
     </div>
   </div>
 
-  <!-- Project Detail Dialog -->
   @if (selectedProject) {
   <div class="dialog_overlay" (click)="onOverlayClick($event)">
     <div class="dialog_card">
@@ -87,10 +86,10 @@
 
       <div class="dialog_navigation">
         <button class="dialog_nav_link" (click)="prevProject()">
-          ← {{ "FEATURED-PROJECTS.DIALOG.PREV_PROJECT" | translate }}
+          <span class="nav_arrow">←</span> {{ "FEATURED-PROJECTS.DIALOG.PREV_PROJECT" | translate }}
         </button>
         <button class="dialog_nav_link" (click)="nextProject()">
-          {{ "FEATURED-PROJECTS.DIALOG.NEXT_PROJECT" | translate }} →
+          {{ "FEATURED-PROJECTS.DIALOG.NEXT_PROJECT" | translate }} <span class="nav_arrow">→</span>
         </button>
       </div>
     </div>
