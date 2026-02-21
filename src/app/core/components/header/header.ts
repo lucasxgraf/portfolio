@@ -11,36 +11,51 @@ import { RouterLink } from "@angular/router";
 })
 export class Header {
   isEnglish = true;
+  isMenuOpen = false;
 
-  constructor(private languageService: LanguageService) {}
+  constructor(private languageService: LanguageService) { }
 
-   changeLanguage() {
+  changeLanguage() {
     this.isEnglish = !this.isEnglish;
     const lang = this.isEnglish ? 'en' : 'de';
     this.languageService.changeLang(lang);
   }
 
-  get languageButtonSrc():string {
+  toggleMenu() {
+    this.isMenuOpen = !this.isMenuOpen;
+    if (this.isMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
+  }
+
+  closeMenu() {
+    this.isMenuOpen = false;
+    document.body.style.overflow = 'auto';
+  }
+
+  get languageButtonSrc(): string {
     return this.isEnglish
-    ? "/assets/imgs/header/english-button.png"
-    : "/assets/imgs/header/german-button.png";
+      ? "/assets/imgs/header/english-button.png"
+      : "/assets/imgs/header/german-button.png";
   }
 
-  get languageButtonHoverSrc():string {
+  get languageButtonHoverSrc(): string {
     return this.isEnglish
-    ? "/assets/imgs/header/english-button-hover.png"
-    : "/assets/imgs/header/german-button-hover.png";
+      ? "/assets/imgs/header/english-button-hover.png"
+      : "/assets/imgs/header/german-button-hover.png";
   }
 
-  get languageButtonAlt():string {
-    return this.isEnglish 
-    ? "English button"
-    : "German button";
+  get languageButtonAlt(): string {
+    return this.isEnglish
+      ? "English button"
+      : "German button";
   }
 
-  get languageButtonHoverAlt():string {
-    return this.isEnglish 
-    ? "English button hover"
-    : "German button hover";
+  get languageButtonHoverAlt(): string {
+    return this.isEnglish
+      ? "English button hover"
+      : "German button hover";
   }
 }
