@@ -2,17 +2,25 @@
 
 section {
   background-color: #1c1c1c;
-  min-height: 100vh;
+  padding: 60px 0;
   display: flex;
   align-items: center;
   overflow-x: hidden;
-}
 
-.featured_projects_subtitle {
-  color: $color-accent;
-  font-size: 1.5rem;
-  font-weight: 500;
-  margin-bottom: 24px;
+  @media (max-width: 800px) {
+    padding: 40px 0;
+  }
+
+  .featured_projects_subtitle {
+    color: $color-accent;
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: 24px;
+
+    @media (max-width: 450px) {
+      font-size: 1.25rem;
+    }
+  }
 }
 
 .featured_projects_header {
@@ -26,13 +34,24 @@ section {
     font-size: 4rem;
     font-weight: 700;
     color: $color-accent;
+
+    @media (max-width: 1024px) {
+      font-size: 3rem;
+    }
+
+    @media (max-width: 800px) {
+      font-size: 2.5rem;
+    }
+
+    @media (max-width: 450px) {
+      font-size: 2rem;
+    }
   }
 
   .featured_projects_description {
     font-family: $font-karla;
     max-width: 600px;
     line-height: 1.2;
-    color: white;
   }
 }
 
@@ -65,6 +84,19 @@ section {
     position: relative;
     overflow: hidden;
 
+    @media (max-width: 800px) {
+      height: auto;
+      padding: 16px;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    @media (max-width: 450px) {
+      padding: 16px 12px;
+      gap: 12px;
+    }
+
     &::before {
       content: '';
       position: absolute;
@@ -87,6 +119,10 @@ section {
         color: $color-accent;
         transform: translateX(10px);
 
+        @media (max-width: 450px) {
+          transform: translateX(0);
+        }
+
         .arrow {
           opacity: 1;
           transform: translate(0, 0);
@@ -102,7 +138,14 @@ section {
       display: flex;
       align-items: center;
       gap: 16px;
-      color: white;
+
+      @media (max-width: 800px) {
+        color: $color-accent
+      }
+
+      @media (max-width: 450px) {
+        font-size: 1.5rem;
+      }
 
       .arrow {
         width: 24px;
@@ -111,13 +154,22 @@ section {
         transition: all $defaultDuration ease;
         display: inline-block;
         transform: translate(-5px, 5px);
+
+        @media (max-width: 800px) {
+          display: none;
+        }
       }
+
     }
 
     .featured_project_tech {
       font-family: $font-fira;
       text-align: right;
-      color: white;
+
+      @media (max-width: 800px) {
+        text-align: left;
+        line-height: 1.4;
+      }
     }
   }
 }
@@ -131,6 +183,10 @@ section {
   transition: all $defaultDuration ease;
   opacity: 0;
   pointer-events: none;
+
+  @media (max-width: 1024px) {
+    display: none;
+  }
 
   &.visible {
     opacity: 1;
@@ -202,6 +258,11 @@ section {
   @include flex-center();
   animation: overlayFadeIn 0.3s ease forwards;
   padding: 24px;
+
+  @media (max-width: 480px) {
+    padding: 16px;
+    width: 100vw;
+  }
 }
 
 .dialog_card {
@@ -222,6 +283,16 @@ section {
   &:hover {
     border-color: $color-accent;
     box-shadow: 0 8px 40px rgba($color-accent, 0.1);
+  }
+
+  @media (max-width: 900px) {
+    padding: 80px 24px 32px;
+  }
+
+  @media (max-width: 480px) {
+    padding: 80px 16px 24px;
+    border-radius: 20px;
+    width: 100%;
   }
 }
 
@@ -247,12 +318,22 @@ section {
     background: rgba($color-accent, 0.1);
     transform: rotate(90deg);
   }
+
+  @media (max-width: 900px) {
+    top: 16px;
+    right: 16px;
+  }
 }
 
 .dialog_content {
   display: flex;
   align-items: center;
   gap: 56px;
+
+  @media (max-width: 900px) {
+    flex-direction: column;
+    gap: 24px;
+  }
 }
 
 .dialog_left {
@@ -271,14 +352,22 @@ section {
   background-clip: text;
   line-height: 1;
   margin-bottom: 8px;
+
+  @media (max-width: 900px) {
+    font-size: 3.5rem;
+  }
 }
 
 .dialog_project_name {
   font-family: $font-karla;
   font-size: 2.8rem;
   font-weight: 700;
-  color: white;
   margin-bottom: 28px;
+
+  @media (max-width: 900px) {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
 }
 
 .dialog_question {
@@ -332,6 +421,10 @@ section {
   display: flex;
   gap: 16px;
   flex-wrap: wrap;
+
+  @media (max-width: 480px) {
+    flex-direction: column;
+  }
 }
 
 .dialog_btn {
@@ -345,6 +438,10 @@ section {
   background: $color-accent;
   color: #1c1c1c;
   font-weight: 600;
+
+  @media (max-width: 480px) {
+    justify-content: center;
+  }
 
   .btn_arrow {
     width: 16px;
@@ -382,6 +479,10 @@ section {
 .dialog_right {
   flex: 1;
   @include flex-center();
+
+  @media (max-width: 900px) {
+    order: -1;
+  }
 }
 
 .dialog_preview_wrapper {
@@ -405,6 +506,12 @@ section {
   margin-top: 32px;
   padding-top: 32px;
   border-top: 1px solid rgba(white, 0.06);
+
+@media (max-width: 480px) {
+    flex-direction: column;
+    text-align: center;
+    gap: 16px;
+  }
 }
 
 .dialog_nav_link {
@@ -465,63 +572,4 @@ section {
     opacity: 1;
     transform: translateY(0) scale(1);
   }
-}
-
-@media (max-width: 900px) {
-  .dialog_card {
-    padding: 72px 24px 32px;
-    border-radius: 24px;
-  }
-
-  .dialog_close {
-    top: 16px;
-    right: 16px;
-  }
-
-  .dialog_content {
-    flex-direction: column;
-    gap: 24px;
-  }
-
-  .dialog_project_number {
-    font-size: 3.5rem;
-  }
-
-  .dialog_project_name {
-    font-size: 2rem;
-    margin-bottom: 20px;
-  }
-
-  .dialog_right {
-    order: -1;
-  }
-
-}
-
-@media (max-width: 480px) {
-  .dialog_overlay {
-    padding: 16px;
-    width: 100vw;
-  }
-
-  .dialog_card {
-    padding: 64px 16px 24px;
-    border-radius: 20px;
-    width: 100%;
-  }
-
-  .dialog_actions {
-    flex-direction: column;
-
-    .dialog_btn {
-      justify-content: center;
-    }
-  }
-
-  .dialog_navigation {
-    flex-direction: column;
-    text-align: center;
-    gap: 16px;
-  }
-
 }
