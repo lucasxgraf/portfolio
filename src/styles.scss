@@ -16,12 +16,13 @@ body:has(app-privacy) {
   box-sizing: border-box;
   color: white;
   outline: none;
-  font-family: $font-fira;
+  font-family: $font-karla;
+  font-size: 1rem;
+  line-height: 1.4;
   scroll-behavior: smooth;
   scrollbar-width: none;
 }
 
-/* karla-regular - latin */
 @font-face {
   font-display: swap;
   font-family: 'Karla';
@@ -30,7 +31,6 @@ body:has(app-privacy) {
   src: url('../public/assets/fonts/karla-v33-latin-regular.woff2') format('woff2');
 }
 
-/* karla-500 - latin */
 @font-face {
   font-display: swap;
   font-family: 'Karla';
@@ -39,7 +39,6 @@ body:has(app-privacy) {
   src: url('../public/assets/fonts/karla-v33-latin-500.woff2') format('woff2');
 }
 
-/* karla-600 - latin */
 @font-face {
   font-display: swap;
   font-family: 'Karla';
@@ -48,7 +47,6 @@ body:has(app-privacy) {
   src: url('../public/assets/fonts/karla-v33-latin-600.woff2') format('woff2');
 }
 
-/* karla-700 - latin */
 @font-face {
   font-display: swap;
   font-family: 'Karla';
@@ -57,7 +55,6 @@ body:has(app-privacy) {
   src: url('../public/assets/fonts/karla-v33-latin-700.woff2') format('woff2');
 }
 
-/* karla-800 - latin */
 @font-face {
   font-display: swap;
   font-family: 'Karla';
@@ -66,7 +63,6 @@ body:has(app-privacy) {
   src: url('../public/assets/fonts/karla-v33-latin-800.woff2') format('woff2');
 }
 
-/* fira-code-regular - latin */
 @font-face {
   font-display: swap;
   font-family: 'Fira Code';
@@ -75,7 +71,6 @@ body:has(app-privacy) {
   src: url('../public/assets/fonts/fira-code-v27-latin-regular.woff2') format('woff2');
 }
 
-/* fira-code-500 - latin */
 @font-face {
   font-display: swap;
   font-family: 'Fira Code';
@@ -84,7 +79,6 @@ body:has(app-privacy) {
   src: url('../public/assets/fonts/fira-code-v27-latin-500.woff2') format('woff2');
 }
 
-/* fira-code-600 - latin */
 @font-face {
   font-display: swap;
   font-family: 'Fira Code';
@@ -93,7 +87,6 @@ body:has(app-privacy) {
   src: url('../public/assets/fonts/fira-code-v27-latin-600.woff2') format('woff2');
 }
 
-/* fira-code-700 - latin */
 @font-face {
   font-display: swap;
   font-family: 'Fira Code';
@@ -105,12 +98,11 @@ body:has(app-privacy) {
 .container {
   width: 100%;
   max-width: 1440px;
+  height: 100%;
   margin: 0 auto;
   padding: 0 32px;
   position: relative;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
+  @include flex-column();
 
   @media (max-width: 450px) {
     padding: 0 16px;
@@ -123,12 +115,11 @@ body:has(app-privacy) {
   border: 1px solid white;
   background: transparent;
   padding: 0 24px;
-  gap: 8px;
-  font-size: 1rem;
-  font-family: $font-karla;
-  line-height: 120%;
+  @include flex-center(row, 8px);
+  line-height: 1.2;
   font-weight: 400;
   cursor: pointer;
+  transition: all $defaultDuration ease;
 }
 
 a {
