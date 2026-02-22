@@ -1,5 +1,10 @@
-<header>
-  <div class="header_left">
+<header [class.menu_open]="isMenuOpen">
+  <div class="burger_menu" (click)="toggleMenu()" [class.open]="isMenuOpen">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+  <nav [class.mobile_active]="isMenuOpen">
     <div class="language_toggle" (click)="changeLanguage()">
       <button class="btn lang_btn" [class.german]="!isEnglish">
         <div class="lang_slider" [class.german]="!isEnglish"></div>
@@ -7,13 +12,12 @@
         <span class="lang_option de" [class.active]="!isEnglish">DE</span>
       </button>
     </div>
-    <nav>
-      <a routerLink="/" fragment="aboutMe" class="hover_shadow">{{ 'NAV.ABOUT' | translate }}</a>
-      <a routerLink="/" fragment="skills" class="hover_shadow">{{ 'NAV.SKILLS' | translate }}</a>
-      <a routerLink="/" fragment="featuredProjects" class="hover_shadow">{{ 'NAV.PROJECTS' | translate }}</a>
-    </nav>
-  </div>
-  <a routerLink="/" fragment="hero">
+    <a routerLink="/" fragment="aboutMe" class="hover_shadow" (click)="closeMenu()">{{ 'NAV.ABOUT' | translate }}</a>
+    <a routerLink="/" fragment="skills" class="hover_shadow" (click)="closeMenu()">{{ 'NAV.SKILLS' | translate }}</a>
+    <a routerLink="/" fragment="featuredProjects" class="hover_shadow" (click)="closeMenu()">{{ 'NAV.PROJECTS' |
+      translate }}</a>
+  </nav>
+  <a routerLink="/" fragment="hero" class="logo_container" (click)="closeMenu()">
     <img src="assets/img/logo/logo.png" alt="Logo Lucas Graf">
   </a>
 </header>

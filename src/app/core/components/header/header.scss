@@ -2,93 +2,201 @@
 
 header {
   position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   height: 104px;
   padding: 0 32px;
   z-index: 999;
-  
+  @include flex-between(); 
+
+  @media (max-width: 800px) {
+    flex-direction: row-reverse;
+    padding: 0 16px;
+    height: 80px;
+  }
+
   .header_left {
-    @include flex-center();
-    gap: 24px;
+    z-index: 1001;
+    @include flex-center(row, 24px);
   }
 
   nav {
-    display: flex;
-    gap: 24px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(8, 70, 59, 0.98);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(-100%);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    @include flex-center(column, 48px);
+
+    &.mobile_active {
+      transform: translateY(0);
+      visibility: visible;
+      opacity: 1;
+    }
+
+    @media (max-width: 450px) {
+      gap: 32px;
+    }
 
     a {
-      font-size: 1.5rem;
-      color: $color-light-gray;
+      font-size: 2.5rem;
+      color: white;
       text-decoration: none;
+      font-weight: 700;
+      transition: color $defaultDuration ease;
+
+      @media (max-width: 450px) {
+        font-size: 2rem;
+      }
 
       &:hover {
         color: $color-accent;
       }
     }
-  }
 
-  img {
-    width: 256px;
-    height: 56px;
+    @media (min-width: 801px) {
+      position: static;
+      height: auto;
+      width: auto;
+      background: transparent;
+      backdrop-filter: none;
+      flex-direction: row;
+      transform: none;
+      visibility: visible;
+      opacity: 1;
+      gap: 24px;
 
-    &:hover {
-      filter: drop-shadow(0px 0px 2px rgba(255, 255, 255, 1));
+      a {
+        font-size: 1.5rem;
+        color: $color-light-gray;
+        font-weight: 400;
+      }
     }
   }
-}
 
-.language_toggle {
-  .lang_btn {
+  .burger_menu {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 32px;
+    height: 24px;
+    cursor: pointer;
+    z-index: 1001;
     position: relative;
-    display: flex;
-    align-items: center;
-    width: 88px;
-    height: 32px;
-    padding: 0;
-    border-color: $color-accent;
-    transition: all $defaultDuration ease;
 
-    &:hover {
-      border-color: white;
+    @media (max-width: 800px) {
+      display: flex;
     }
 
-    .lang_slider {
-      position: absolute;
-      width: 48px;
+    span {
+      display: block;
+      height: 3px;
+      width: 100%;
+      background-color: white;
+      border-radius: 3px;
+      transition: all $defaultDuration ease-in-out;
+      transform-origin: left center;
+    }
+
+    &.open span {
+      &:nth-child(1) {
+        transform: rotate(45deg);
+        background-color: $color-accent;
+      }
+
+      &:nth-child(2) {
+        width: 0;
+        opacity: 0;
+      }
+
+      &:nth-child(3) {
+        transform: rotate(-45deg);
+        background-color: $color-accent;
+      }
+    }
+  }
+
+  .logo_container {
+    z-index: 1001;
+
+    img {
+      width: 256px;
+      height: auto;
+      max-height: 56px;
+
+      @media (max-width: 800px) {
+        width: 180px;
+      }
+
+      &:hover {
+        filter: drop-shadow(0 0 2px white);
+      }
+    }
+  }
+
+  .language_toggle {
+    z-index: 1001;
+
+    @media (max-width: 800px) {
+      transform: scale(1.3);
+    }
+
+    .lang_btn {
+      position: relative;
+      width: 88px;
       height: 32px;
-      background: #3dcfb654;
-      border-radius: 24px;
-      left: 2px;
-      transition: transform $defaultDuration ease;
-      transform: translateX(-4px);
+      padding: 0;
+      border-color: $color-accent;
+      transition: all $defaultDuration ease;
+      @include flex-start();
 
-      &.german{
-        transform: translateX(37px);
-      }
-    }
-
-    .lang_option {
-      position: absolute;
-      font-size: 1.25rem;
-      color: rgba(39, 116, 102, 1);
-      transition: color $defaultDuration ease;
-      z-index: 1;
-
-      &.de {
-        right: 10px;
-      }
-      
-      &.en {
-        left: 10px;
+      &:hover {
+        border-color: white;
       }
 
-      &.active {
-        color: white;
-        font-weight: bold;
-        line-height: 120%;
+      .lang_slider {
+        position: absolute;
+        width: 48px;
+        height: 32px;
+        left: 2px;
+        border-radius: 24px;
+        background: rgba($color-accent, 0.33);
+        transition: transform $defaultDuration ease;
+        transform: translateX(-4px);
+
+        &.german {
+          transform: translateX(37px);
+        }
+      }
+
+      .lang_option {
+        position: absolute;
+        font-size: 1.25rem;
+        color: #277466;
+        transition: color $defaultDuration ease;
+        z-index: 1;
+
+        &.de { 
+          right: 10px; 
+        }
+
+        &.en { 
+          left: 10px; 
+        }
+
+        &.active {
+          color: white;
+          font-weight: 700;
+          line-height: 1.2; 
+        }
       }
     }
   }
@@ -97,78 +205,55 @@ header {
 .hover_shadow {
   display: inline-block;
   position: relative;
-  transition-duration: $defaultDuration;
-  transition-property: transform, color;
+  transition: transform $defaultDuration, color $defaultDuration;
 
   @include hideTapHighlightColor();
   @include hardwareAccel();
   @include improveAntiAlias();
 
   &::before {
+    content: '';
     pointer-events: none;
     position: absolute;
     z-index: -1;
-    content: '';
     top: 100%;
     left: 5%;
     height: 10px;
     width: 90%;
     opacity: 0;
-    background: radial-gradient(
-      ellipse at center,
-      rgba($color-accent, .35) 0%,
-      rgba($color-accent, 0) 80%
-    );
-    transition-duration: $defaultDuration;
-    transition-property: transform, opacity;
+    background: radial-gradient(ellipse at center, rgba($color-accent, 0.35) 0%, rgba($color-accent, 0) 80%);
+    transition: transform $defaultDuration, opacity $defaultDuration;
   }
 
   &:hover {
     color: $color-accent;
     transform: translateY(-6px);
-    animation-name: hover;
-    animation-duration: 1.5s;
-    animation-delay: $defaultDuration;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
+    animation: hover 1.5s linear $defaultDuration infinite alternate;
 
     &::before {
-      opacity: .4;
+      opacity: 0.4;
       transform: translateY(6px);
-      animation-name: hover_shadow;
-      animation-duration: 1.5s;
-      animation-delay: .3s;
-      animation-timing-function: linear;
-      animation-iteration-count: infinite;
-      animation-direction: alternate;
+      animation: hover_shadow 1.5s linear 0.3s infinite alternate;
     }
   }
 }
 
 @keyframes hover {
-  50% {
-    transform: translateY(-3px);
+  50% { 
+    transform: translateY(-3px); 
   }
-
-  100% {
-    transform: translateY(-6px);
+  100% { 
+    transform: translateY(-6px); 
   }
 }
 
 @keyframes hover_shadow {
-  0% {
+  0%, 100% {
     transform: translateY(6px);
-    opacity: .4;
+    opacity: 0.4;
   }
-
   50% {
     transform: translateY(3px);
     opacity: 1;
-  }
-
-  100% {
-    transform: translateY(6px);
-    opacity: .4;
   }
 }

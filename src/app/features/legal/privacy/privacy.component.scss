@@ -1,10 +1,10 @@
 @use '../../../../styles/variables' as *;
 
 section {
-  @include flex-center();
   width: 100%;
   padding-top: 104px; 
   overflow: hidden;
+  @include flex-center();
 
   .privacy_header {
     margin-bottom: 64px;
@@ -19,48 +19,36 @@ section {
 }
 
 .privacy_content {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
+  @include flex-column(24px); 
 
-  h2 {
-    font-size: 2rem;
+  h2, h3, h4 {
+    font-family: $font-fira;
     font-weight: 600;
     color: $color-accent;
   }
 
-  h3 {
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: $color-accent;
+  h2 { 
+    font-size: 2rem; 
   }
-
-  h4 {
-    font-size: 1.25rem;
-    font-weight: 600;
-    color: $color-accent;
+  h3 { 
+    font-size: 1.5rem; 
   }
-
-  p,
-  li {
-    font-family: $font-karla;
-    line-height: 1.4;
+  h4 { 
+    font-size: 1.25rem; 
   }
 
   ul {
     padding-left: 24px;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
+    @include flex-column(8px);
   }
 
   a {
     color: $color-accent;
     text-decoration: underline;
+    transition: color $defaultDuration ease;
 
     &:hover {
-      color: white;
-      transition: all $defaultDuration ease;
+      color: white; 
     }
   }
 }

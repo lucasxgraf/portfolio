@@ -3,46 +3,60 @@
 section {
   display: flex;
   align-items: center;
-  min-height: 100vh;
-  background-color: #1C1C1C;
   position: relative;
   overflow: hidden;
-
-  // Background gradient glow on the left
-  &::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: -10%;
-    width: 700px;
-    height: 700px;
-    background: radial-gradient(circle, rgba(61, 207, 182, 0.15) 0%, rgba(61, 207, 182, 0) 70%);
-    filter: blur(60px);
-    transform: translateY(-50%);
-    pointer-events: none;
-    z-index: 1;
-  }
+  padding: 60px 0;
+  background-color: $color-bg-dark;
 
   .container {
     position: relative;
     z-index: 2;
   }
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: -10%;
+    z-index: 1;
+    width: 700px;
+    height: 700px;
+    background: radial-gradient(circle, rgba($color-accent, 0.15) 0%, rgba($color-accent, 0) 70%);
+    filter: blur(60px);
+    transform: translateY(-50%);
+    pointer-events: none;
+
+    @media (max-width: 800px) {
+      width: 400px;
+      height: 400px;
+    }
+  }
+
+  @media (max-width: 800px) {
+    padding: 40px 0;
+  }
 }
 
 .section_subtitle {
+  margin-bottom: 24px;
   font-family: $font-fira;
-  color: $color-accent;
   font-size: 1.5rem;
   font-weight: 500;
-  margin-bottom: 24px;
+  color: $color-accent;
 }
 
 .skills_layout {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 80px;
+  @include flex-between(row, center, 80px);
   width: 100%;
+
+  @media (max-width: 1024px) {
+    gap: 48px;
+  }
+
+  @media (max-width: 900px) {
+    flex-direction: column;
+    text-align: center;
+  }
 }
 
 .skills_left {
@@ -50,43 +64,20 @@ section {
   max-width: 550px;
 
   .content_box {
-    padding: 32px;
-    background: linear-gradient(135deg, rgba(28, 28, 28, 0.7) 0%, rgba(8, 70, 59, 0.3) 100%);
-    border: 1px solid rgba($color-accent, 0.3);
-    border-radius: 40px;
-    backdrop-filter: blur(24px);
-    display: flex;
-    flex-direction: column;
-    gap: 32px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    transition: all $defaultDuration ease;
+    @include flex-column(32px);
+    @include glass-panel();
 
-    &:hover {
-      border-color: $color-accent;
-      box-shadow: 0 8px 40px rgba($color-accent, 0.1);
+    .skill_title h1 {
+      @include section-title-styles();
     }
 
-    .skill_title {
-      h1 {
-        font-family: $font-karla;
-        font-weight: 700;
-        font-size: 4rem;
-        line-height: 1;
-        color: $color-accent;
-      }
-    }
-
-    .skill_description {
-      p {
-        font-family: $font-karla;
-        line-height: 1.5;
-      }
+    .skill_description p {
+      line-height: 1.5;
+      text-align: start;
     }
 
     .skill_cta {
-      display: flex;
-      flex-direction: column;
-      gap: 24px;
+      @include flex-column(24px);
 
       h2 {
         font-size: 1.5rem;
@@ -95,53 +86,70 @@ section {
 
         span {
           font-family: $font-fira;
+          font-size: inherit;
           color: $color-accent;
+        }
+
+        @media (max-width: 450px) {
+          font-size: 1.25rem;
         }
       }
 
       p {
-        font-family: $font-karla;
         line-height: 1.2;
       }
 
       .btn {
         width: fit-content;
-        transition: all $defaultDuration ease;
+        transition: background-color $defaultDuration ease, color $defaultDuration ease, border-color $defaultDuration ease;
 
         &:hover {
           background-color: $color-accent;
-          color: #1C1C1C;
+          color: $color-bg-dark;
           border-color: $color-accent;
         }
       }
+
+      @media (max-width: 900px) {
+        align-items: center;
+      }
     }
+
+    @media (max-width: 450px) {
+      padding: 24px 16px;
+      gap: 24px;
+    }
+  }
+
+  @media (max-width: 900px) {
+    max-width: 100%;
   }
 }
 
 .skills_right {
   flex: 1;
+  width: 100%;
 
   .skills_grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     justify-items: center;
     gap: 64px 32px;
+
+    @media (max-width: 1200px) {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 48px 24px;
+    }
+
+    @media (max-width: 600px) {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px 16px;
+    }
   }
 
   .skill_item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 16px;
+    @include flex-column(16px, flex-start, center);
     transition: transform $defaultDuration ease;
-
-    &:hover {
-      transform: translateY(-10px);
-
-      .skill_icon img {
-        filter: drop-shadow(0 0 16px rgba($color-accent, 0.5));
-      }
-    }
 
     .skill_icon {
       width: 64px;
@@ -157,26 +165,8 @@ section {
     }
 
     .skill_name {
-      font-family: $font-karla;
       color: $color-light-gray;
       white-space: nowrap;
-    }
-
-    &.has-tooltip {
-      position: relative;
-
-      .skill_name {
-        color: $color-accent;
-        opacity: 1;
-      }
-
-      &:hover {
-        .skill_tooltip {
-          opacity: 1;
-          visibility: visible;
-          transform: translateX(-50%) translateY(0);
-        }
-      }
     }
 
     .skill_tooltip {
@@ -184,50 +174,54 @@ section {
       bottom: calc(100% + 20px);
       left: 50%;
       transform: translateX(-50%) translateY(10px);
-      width: 280px;
-      background: white;
-      border-radius: 40px;
-      padding: 24px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-      opacity: 0;
-      visibility: hidden;
-      transition: all $defaultDuration ease;
       z-index: 10;
       display: flex;
       flex-direction: column;
       align-items: center;
       gap: 16px;
+      width: 280px;
+      padding: 24px;
+      background: white;
       border: 2px solid rgba($color-accent, 0.2);
+      border-radius: 40px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity $defaultDuration ease, visibility $defaultDuration ease, transform $defaultDuration ease;
 
       .tooltip_text {
-        font-family: $font-karla;
-        color: $color-accent;
-        text-align: center;
         font-weight: 600;
         line-height: 1.2;
+        color: $color-accent;
+        text-align: center;
       }
 
       .tooltip_assets {
         display: flex;
-        gap: 32px;
         justify-content: center;
+        gap: 32px;
 
         .asset_item {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          gap: 8px;
+          @include flex-column(8px, flex-start, center);
 
           img {
             width: 40px;
             height: 40px;
             object-fit: contain;
+
+            @media (max-width: 450px) {
+              width: 32px;
+              height: 32px;
+            }
           }
 
           span {
-            font-family: $font-karla;
             color: $color-accent;
           }
+        }
+
+        @media (max-width: 450px) {
+          gap: 16px;
         }
       }
 
@@ -247,12 +241,73 @@ section {
           position: absolute;
           top: -14px;
           left: -12px;
+          z-index: -1;
           width: 0;
           height: 0;
           border-left: 12px solid transparent;
           border-right: 12px solid transparent;
           border-top: 12px solid rgba($color-accent, 0.1);
-          z-index: -1;
+
+          @media (max-width: 600px) {
+            top: -10px;
+            left: 0;
+            border-left: none;
+            border-top: 10px solid transparent;
+            border-bottom: 10px solid transparent;
+            border-right: 10px solid rgba($color-accent, 0.1);
+          }
+        }
+
+        @media (max-width: 600px) {
+          top: 50%;
+          left: 0;
+          transform: translateY(-50%) translateX(-100%);
+          border-left: none;
+          border-top: 10px solid transparent;
+          border-bottom: 10px solid transparent;
+          border-right: 10px solid white;
+        }
+      }
+
+      @media (max-width: 600px) {
+        bottom: auto;
+        top: 32px;
+        left: calc(50% + 64px);
+        transform: translateY(-50%) translateX(10px);
+        width: 250px;
+        padding: 16px;
+      }
+
+      @media (max-width: 450px) {
+        width: 164px;
+      }
+    }
+
+    &:hover {
+      transform: translateY(-10px);
+
+      .skill_icon img {
+        filter: drop-shadow(0 0 16px rgba($color-accent, 0.5));
+      }
+    }
+
+    &.has-tooltip {
+      position: relative;
+
+      .skill_name {
+        color: $color-accent;
+        opacity: 1;
+      }
+
+      &:hover {
+        .skill_tooltip {
+          opacity: 1;
+          visibility: visible;
+          transform: translateX(-50%) translateY(0);
+
+          @media (max-width: 600px) {
+            transform: translateY(-50%) translateX(0);
+          }
         }
       }
     }

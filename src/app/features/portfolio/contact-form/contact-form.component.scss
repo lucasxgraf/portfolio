@@ -1,59 +1,51 @@
 @use '../../../../styles/variables' as *;
 
 section {
-  display: flex;
-  align-items: center;
-  min-height: 100vh;
-  position: relative;
-  background-color: #1c1c1c;
-  overflow: hidden;
-
-  &::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: -160px;
-    width: 640px;
-    height: 640px;
-    background: radial-gradient(circle, rgba($color-accent, 0.1) 0%, rgba($color-accent, 0) 70%);
-    filter: blur(64px);
-    transform: translateY(-50%);
-    pointer-events: none;
-    z-index: 1;
-  }
+  @include section-setup($with-glow: true, $glow-left: true);
 }
 
 .contact_layout {
-  display: flex;
+  @include flex-start(row, stretch, 16px);
   justify-content: center;
-  gap: 16px;
+
+  @media (max-width: 900px) {
+    flex-direction: column;
+    gap: 48px;
+    align-items: center;
+  }
 }
 
 .contact_intro {
   flex: 1;
 
+  @media (max-width: 900px) {
+    text-align: center;
+  }
+
   .contact_subtitle {
-    font-family: $font-karla;
+    font-family: $font-fira;
     color: $color-accent;
     font-size: 1.5rem;
     font-weight: 500;
     margin-bottom: 32px;
+
+    @media (max-width: 450px) {
+      font-size: 1.25rem;
+      margin-bottom: 16px;
+    }
   }
 
   .contact_title {
-    font-family: $font-karla;
-    font-size: 4rem;
-    font-weight: 700;
-    color: $color-accent;
+    @include section-title-styles();
     margin-bottom: 32px;
   }
 
   .contact_description {
-    font-family: $font-karla;
     line-height: 1.5;
+    text-align: start;
 
-    span {
-      color: $color-accent;
+    span { 
+      color: $color-accent; 
     }
   }
 }
@@ -61,20 +53,18 @@ section {
 .contact_form {
   flex: 1;
   max-width: 800px;
-  display: flex;
-  flex-direction: column;
+  @include flex-column();
   border-top: 1px solid rgba($color-accent, 0.4);
-  transition: border-color 0.3s ease;
+  transition: border-color $defaultDuration ease;
 
   &:has(.input_group:first-of-type.error) {
     border-top-color: $color-error;
   }
 
   .input_group {
-    display: flex;
-    flex-direction: column;
+    @include flex-column();
     min-height: 130px;
-    padding: 24px;
+    padding: 24px 24px 44px;
     border-bottom: 1px solid rgba($color-accent, 0.4);
     transition: all $defaultDuration ease;
     position: relative;
@@ -82,6 +72,7 @@ section {
     &:hover,
     &:focus-within {
       background-color: rgba($color-accent, 0.03);
+
       .input_info label {
         color: $color-accent;
         transform: translateX(8px);
@@ -91,35 +82,42 @@ section {
     &.error {
       border-bottom-color: $color-error;
       background-color: rgba($color-error, 0.02);
-      .input_info label { color: $color-error; }
+
+      .input_info label { 
+        color: $color-error; 
+      }
     }
 
     .input_info label {
-      font-family: $font-karla;
       font-size: 1.75rem;
       font-weight: 600;
       color: $color-accent;
-      transition: all 0.3s ease;
+      transition: all $defaultDuration ease;
       display: block;
       margin-bottom: 16px;
+
+      @media (max-width: 450px) {
+        font-size: 1.25rem;
+        margin-bottom: 8px;
+      }
     }
 
     .input_field {
       flex: 1;
-      display: flex;
-      flex-direction: column;
+      @include flex-column();
 
       input,
       textarea {
         background: transparent;
         border: none;
-        font-family: $font-karla;
         font-size: 1.25rem;
-        color: white;
-        padding-bottom: 8px;
 
-        &:focus {
-          outline: none;
+        @media (max-width: 450px) { 
+          font-size: 1rem !important; 
+        }
+
+        &:focus { 
+          outline: none; 
         }
 
         &::placeholder {
@@ -133,33 +131,28 @@ section {
           transition: background-color 5000s ease-in-out 0s;
         }
       }
+    }
 
-      textarea {
+      textarea { 
         resize: none;
-      }
     }
 
     .error_message {
       position: absolute;
       bottom: 16px;
       right: 24px;
-      display: flex;
-      align-items: center;
+      @include flex-start(row, center, 8px);
       color: $color-error;
-      font-family: $font-karla;
       animation: errorReveal 0.4s cubic-bezier(0.23, 1, 0.32, 1) forwards;
       pointer-events: none;
 
       &::before {
         content: '!';
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
+        @include flex-center();
         width: 16px;
         height: 16px;
         border: 1px solid $color-error;
         border-radius: 50%;
-        margin-right: 8px;
         font-size: 0.75rem;
         font-weight: 800;
       }
@@ -168,20 +161,16 @@ section {
 
   .form_footer {
     padding: 32px 24px;
-    display: flex;
-    flex-direction: column;
-    gap: 32px;
+    @include flex-column($gap: 32px);
   }
 
   .privacy_container {
     position: relative;
-    padding-bottom: 16px; 
+    padding-bottom: 16px;
   }
 
   .privacy_policy {
-    display: flex;
-    align-items: flex-start;
-    gap: 16px;
+    @include flex-start(row, flex-start, 16px);
 
     input[type="checkbox"] {
       appearance: none;
@@ -193,8 +182,8 @@ section {
       background-repeat: no-repeat;
       flex-shrink: 0;
 
-      &:checked { 
-        background-image: url('/assets/img/contact-form/checkbox-checked.png'); 
+      &:checked {
+        background-image: url('/assets/img/contact-form/checkbox-checked.png');
       }
     }
 
@@ -218,14 +207,11 @@ section {
     position: absolute;
     bottom: -16px;
     color: $color-error;
-    font-family: $font-karla;
     animation: errorReveal 0.4s ease forwards;
   }
 
   .submit_container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @include flex-center();
 
     .submit_btn {
       min-width: 180px;
@@ -234,13 +220,19 @@ section {
 
       &:hover {
         background-color: $color-accent;
-        color: #1C1C1C;
+        color: $color-bg-dark;
         border-color: $color-accent;
       }
 
       &:disabled {
         opacity: 0.3;
         cursor: not-allowed;
+
+        &:hover {
+          color: white;
+          border-color: white;
+          background-color: transparent;
+        }
       }
 
       .loader {
@@ -261,7 +253,6 @@ section {
     color: $color-accent;
     border: 1px solid rgba($color-accent, 0.5);
     padding: 16px;
-    font-family: $font-karla;
     font-size: 1.125rem;
     animation: fadeIn 0.5s ease;
   }
@@ -272,27 +263,23 @@ section {
   bottom: 40px;
   left: 50%;
   transform: translateX(-50%);
-  background: rgba(28, 28, 28, 0.9);
+  background: rgba($color-bg-dark, 0.9);
   backdrop-filter: blur(10px);
   border: 1px solid rgba($color-accent, 0.3);
   padding: 16px 28px;
   border-radius: 8px;
   z-index: 1000;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-  display: flex;
-  flex-direction: column;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  @include flex-column();
   overflow: hidden;
-  animation: 
+  animation:
     toastSlideIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards,
     toastFadeOut 0.5s 3.5s ease-in forwards;
 
   .toast_content {
-    display: flex;
-    align-items: center;
-    gap: 16px;
+    @include flex-start(row, center, 16px);
 
     span {
-      font-family: $font-karla;
       font-weight: 500;
       white-space: nowrap;
     }
@@ -323,19 +310,19 @@ section {
   }
 }
 
-@keyframes toastFadeOut {
-  from { opacity: 1; transform: translate(-50%, 0); }
-  to { opacity: 0; transform: translate(-50%, 20px); }
-}
-
 @keyframes toastSlideIn {
   from { opacity: 0; transform: translate(-50%, 40px); }
-  to { opacity: 1; transform: translate(-50%, 0); }
+  to   { opacity: 1; transform: translate(-50%, 0); }
+}
+
+@keyframes toastFadeOut {
+  from { opacity: 1; transform: translate(-50%, 0); }
+  to   { opacity: 0; transform: translate(-50%, 20px); }
 }
 
 @keyframes progressShrink {
   from { transform: scaleX(1); }
-  to { transform: scaleX(0); }
+  to   { transform: scaleX(0); }
 }
 
 @keyframes checkDraw {
@@ -343,6 +330,6 @@ section {
 }
 
 @keyframes rotation {
-  0% { transform: rotate(0deg); }
+  0%   { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
