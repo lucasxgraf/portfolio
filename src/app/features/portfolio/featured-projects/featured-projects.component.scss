@@ -1,64 +1,46 @@
 @use '../../../../styles/variables' as *;
 
 section {
-  background-color: #1c1c1c;
-  padding: 60px 0;
-  display: flex;
-  align-items: center;
+  @include section-setup($with-glow: true, $glow-left: true);
   overflow-x: hidden;
 
-  @media (max-width: 800px) {
-    padding: 40px 0;
-  }
-
   .featured_projects_subtitle {
+    font-family: $font-fira;
     color: $color-accent;
     font-size: 1.5rem;
     font-weight: 500;
     margin-bottom: 24px;
 
-    @media (max-width: 450px) {
-      font-size: 1.25rem;
+    @media (max-width: 450px) { 
+      font-size: 1.25rem; 
     }
   }
 }
 
 .featured_projects_header {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
+  @include flex-column($gap: 24px);
   margin-bottom: 40px;
 
   .featured_projects_title {
-    font-family: $font-karla;
-    font-size: 4rem;
-    font-weight: 700;
-    color: $color-accent;
+    @include section-title-styles();
 
-    @media (max-width: 1024px) {
-      font-size: 3rem;
+    @media (max-width: 800px) { 
+      font-size: 2.5rem; 
     }
 
-    @media (max-width: 800px) {
-      font-size: 2.5rem;
-    }
-
-    @media (max-width: 450px) {
-      font-size: 2rem;
+    @media (max-width: 450px) { 
+      font-size: 2rem; 
     }
   }
 
   .featured_projects_description {
-    font-family: $font-karla;
     max-width: 600px;
     line-height: 1.2;
   }
 }
 
 .featured_projects_content {
-  display: flex;
-  align-items: stretch;
-  gap: 48px;
+  @include flex-start(row, stretch, 48px);
   position: relative;
 
   .featured_projects_list_container {
@@ -68,14 +50,11 @@ section {
 }
 
 .featured_projects_list {
-  display: flex;
-  flex-direction: column;
+  @include flex-column();
   border-top: 1px solid rgba($color-accent, 0.4);
 
   .featured_project_row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    @include flex-between(row, center);
     height: 109px;
     padding: 0 24px;
     border-bottom: 1px solid rgba($color-accent, 0.4);
@@ -111,16 +90,16 @@ section {
     &.active {
       background-color: rgba($color-accent, 0.05);
 
-      &::before {
-        opacity: 1;
+      &::before { 
+        opacity: 1; 
       }
 
       .featured_project_info h3 {
         color: $color-accent;
         transform: translateX(10px);
 
-        @media (max-width: 450px) {
-          transform: translateX(0);
+        @media (max-width: 450px) { 
+          transform: translateX(0); 
         }
 
         .arrow {
@@ -131,20 +110,18 @@ section {
     }
 
     .featured_project_info h3 {
-      font-family: $font-karla;
+      font-family: $font-fira;
       font-size: 2rem;
       font-weight: 600;
       transition: all $defaultDuration ease;
-      display: flex;
-      align-items: center;
-      gap: 16px;
+      @include flex-start(row, center, 16px);
 
-      @media (max-width: 800px) {
-        color: $color-accent
+      @media (max-width: 800px) { 
+        color: $color-accent; 
       }
 
-      @media (max-width: 450px) {
-        font-size: 1.5rem;
+      @media (max-width: 450px) { 
+        font-size: 1.5rem; 
       }
 
       .arrow {
@@ -155,11 +132,10 @@ section {
         display: inline-block;
         transform: translate(-5px, 5px);
 
-        @media (max-width: 800px) {
-          display: none;
+        @media (max-width: 800px) { 
+          display: none; 
         }
       }
-
     }
 
     .featured_project_tech {
@@ -176,16 +152,15 @@ section {
 
 .featured_projects_preview_container {
   flex: 1;
-  display: flex;
-  justify-content: center;
+  @include flex-center();
   position: relative;
   z-index: 1;
   transition: all $defaultDuration ease;
   opacity: 0;
   pointer-events: none;
 
-  @media (max-width: 1024px) {
-    display: none;
+  @media (max-width: 1024px) { 
+    display: none; 
   }
 
   &.visible {
@@ -198,14 +173,13 @@ section {
   position: absolute;
   width: 300px;
   height: 200px;
-  display: flex;
-  justify-content: center;
+  @include flex-center(column);
   align-items: flex-start;
   transition: top 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity $defaultDuration ease;
   opacity: 0;
 
-  .featured_projects_preview_container.visible & {
-    opacity: 1;
+  .featured_projects_preview_container.visible & { 
+    opacity: 1; 
   }
 
   .preview_decoration_bg {
@@ -220,20 +194,23 @@ section {
   }
 
   .featured_project_preview_box {
+    @include flex-center();
+    @include glass-panel(0px, 32px);
     width: 350px;
     height: 200px;
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 32px;
     overflow: hidden;
-    @include flex-center();
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
     z-index: 1;
-    transition: all $defaultDuration ease;
     position: absolute;
     top: 0;
     left: 0;
+
+    &:hover {
+      border-color: rgba($color-accent, 0.3);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+
+      img { transform: scale(1.05); }
+    }
 
     img {
       width: 100%;
@@ -241,14 +218,9 @@ section {
       object-fit: cover;
       transition: transform $defaultDuration ease;
     }
-
-    &:hover img {
-      transform: scale(1.05);
-    }
   }
 }
 
-// ============ DIALOG ============
 .dialog_overlay {
   position: fixed;
   inset: 0;
@@ -256,7 +228,7 @@ section {
   background: rgba(0, 0, 0, 0.7);
   backdrop-filter: blur(12px);
   @include flex-center();
-  animation: overlayFadeIn 0.3s ease forwards;
+  animation: overlayFadeIn $defaultDuration ease forwards;
   padding: 24px;
 
   @media (max-width: 480px) {
@@ -266,27 +238,16 @@ section {
 }
 
 .dialog_card {
+  @include glass-panel(56px, 40px);
   position: relative;
   width: 100%;
   max-width: 1200px;
   max-height: 90vh;
   overflow-y: auto;
-  background: linear-gradient(135deg, rgba(28, 28, 28, 0.7) 0%, rgba(8, 70, 59, 0.3) 100%);
-  border: 1px solid rgba($color-accent, 0.3);
-  border-radius: 40px;
-  backdrop-filter: blur(24px);
-  padding: 56px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   animation: dialogSlideIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  transition: border-color $defaultDuration ease, box-shadow $defaultDuration ease;
 
-  &:hover {
-    border-color: $color-accent;
-    box-shadow: 0 8px 40px rgba($color-accent, 0.1);
-  }
-
-  @media (max-width: 900px) {
-    padding: 80px 24px 32px;
+  @media (max-width: 900px) { 
+    padding: 80px 24px 32px; 
   }
 
   @media (max-width: 480px) {
@@ -303,7 +264,6 @@ section {
   z-index: 10;
   background: none;
   border: 1px solid rgba(white, 0.15);
-  color: white;
   font-size: 2rem;
   width: 48px;
   height: 48px;
@@ -326,9 +286,7 @@ section {
 }
 
 .dialog_content {
-  display: flex;
-  align-items: center;
-  gap: 56px;
+  @include flex-start(row, center, 56px);
 
   @media (max-width: 900px) {
     flex-direction: column;
@@ -338,12 +296,11 @@ section {
 
 .dialog_left {
   flex: 1;
-  display: flex;
-  flex-direction: column;
+  @include flex-column();
 }
 
 .dialog_project_number {
-  font-family: $font-karla;
+  font-family: $font-fira;
   font-size: 5rem;
   font-weight: 800;
   background: linear-gradient(135deg, $color-accent, rgba($color-accent, 0.4));
@@ -353,13 +310,13 @@ section {
   line-height: 1;
   margin-bottom: 8px;
 
-  @media (max-width: 900px) {
-    font-size: 3.5rem;
+  @media (max-width: 900px) { 
+    font-size: 3.5rem; 
   }
 }
 
 .dialog_project_name {
-  font-family: $font-karla;
+  font-family: $font-fira;
   font-size: 2.8rem;
   font-weight: 700;
   margin-bottom: 28px;
@@ -371,7 +328,7 @@ section {
 }
 
 .dialog_question {
-  font-family: $font-karla;
+  font-family: $font-fira;
   font-size: 1.25rem;
   font-weight: 600;
   color: $color-accent;
@@ -379,7 +336,6 @@ section {
 }
 
 .dialog_description {
-  font-family: $font-karla;
   line-height: 1.4;
   color: $color-light-gray;
   margin-bottom: 24px;
@@ -394,14 +350,11 @@ section {
 
 .dialog_tech_badge {
   font-family: $font-fira;
-  color: white;
   padding: 8px 16px;
   border: 1px solid rgba($color-accent, 0.3);
   border-radius: 24px;
   background: rgba($color-accent, 0.06);
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
+  @include flex-start(row, center, 8px);
   transition: all $defaultDuration ease;
 
   .tech_icon {
@@ -419,28 +372,27 @@ section {
 
 .dialog_actions {
   display: flex;
-  gap: 16px;
   flex-wrap: wrap;
+  gap: 16px;
 
-  @media (max-width: 480px) {
-    flex-direction: column;
+  @media (max-width: 480px) { 
+    flex-direction: column; 
   }
 }
 
 .dialog_btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
+  @include flex-start(row, center, 8px);
   padding: 16px 24px;
   border-radius: 32px;
   transition: all $defaultDuration ease;
   border: 1px solid $color-accent;
   background: $color-accent;
-  color: #1c1c1c;
+  color: $color-bg-dark;
   font-weight: 600;
+  cursor: pointer;
 
-  @media (max-width: 480px) {
-    justify-content: center;
+  @media (max-width: 480px) { 
+    justify-content: center; 
   }
 
   .btn_arrow {
@@ -454,8 +406,8 @@ section {
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba($color-accent, 0.3);
 
-    .btn_arrow {
-      transform: translate(2px, -2px);
+    .btn_arrow { 
+      transform: translate(2px, -2px); 
     }
   }
 
@@ -464,8 +416,8 @@ section {
     color: $color-accent;
     border-color: rgba($color-accent, 0.5);
 
-    .btn_arrow {
-      filter: none;
+    .btn_arrow { 
+      filter: none; 
     }
 
     &:hover {
@@ -480,9 +432,7 @@ section {
   flex: 1;
   @include flex-center();
 
-  @media (max-width: 900px) {
-    order: -1;
-  }
+  @media (max-width: 900px) { order: -1; }
 }
 
 .dialog_preview_wrapper {
@@ -500,14 +450,12 @@ section {
 }
 
 .dialog_navigation {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  @include flex-between(row, center);
   margin-top: 32px;
   padding-top: 32px;
   border-top: 1px solid rgba(white, 0.06);
 
-@media (max-width: 480px) {
+  @media (max-width: 480px) {
     flex-direction: column;
     text-align: center;
     gap: 16px;
@@ -520,45 +468,38 @@ section {
   border: none;
   cursor: pointer;
   transition: all $defaultDuration ease;
-  display: flex;
-  align-items: center;
-  gap: 8px;
+  @include flex-start(row, center, 8px);
 
   .nav_arrow {
     font-size: 2rem;
     line-height: 1;
     display: inline-block;
     transition: transform $defaultDuration ease;
-
-    &:hover {
-      color: $color-accent;
-    }
   }
 
   &:hover {
     color: $color-accent;
 
-    .nav_arrow {
-      transform: translateX(var(--arrow-move, 0));
+    .nav_arrow { 
+      transform: translateX(var(--arrow-move, 0)); 
     }
   }
 
-  &:first-child {
-    --arrow-move: -8px;
+  &:first-child { 
+    --arrow-move: -8px; 
   }
 
-  &:last-child {
-    --arrow-move: 8px;
+  &:last-child  { 
+    --arrow-move: 8px; 
   }
 }
 
 @keyframes overlayFadeIn {
-  from {
-    opacity: 0;
+  from { 
+    opacity: 0; 
   }
-
-  to {
-    opacity: 1;
+  to { 
+    opacity: 1; 
   }
 }
 
@@ -567,7 +508,6 @@ section {
     opacity: 0;
     transform: translateY(20px) scale(0.97);
   }
-
   to {
     opacity: 1;
     transform: translateY(0) scale(1);
