@@ -3,9 +3,13 @@
 section {
   display: flex;
   align-items: center;
-  min-height: 100vh;
+  padding: 60px 0;
   position: relative;
   background-color: #1C1C1C;
+
+  @media (max-width: 800px) {
+    padding: 40px 0;
+  }
 
   &::before {
     content: '';
@@ -30,11 +34,20 @@ section {
     flex-direction: column;
     text-align: center;
 
+    @media (max-width: 450px) {
+      margin-bottom: 32px;
+    }
+
     .section_subtitle {
       color: $color-accent;
       font-size: 1.5rem;
       font-weight: 500;
       margin-bottom: 24px;
+
+      @media (max-width: 450px) {
+        font-size: 1.25rem;
+        margin-bottom: 16px;
+      }
     }
 
     .section_title {
@@ -43,30 +56,60 @@ section {
       font-weight: 700;
       line-height: 1;
       color: $color-accent;
+
+      @media (max-width: 1024px) {
+        font-size: 3rem;
+      }
+
+      @media (max-width: 450px) {
+        font-size: 2.25rem;
+      }
     }
   }
 }
 
 #cards {
-  padding: 0 0 calc(8 * $card-gap);
   list-style: none;
   display: grid;
   grid-template-rows: repeat(3, $card-height);
   gap: $card-gap;
   perspective: 1200px;
 
+  @media (max-width: 800px) {
+    grid-template-rows: repeat(3, 400px);
+  }
+
+  @media (max-width: 450px) {
+    grid-template-rows: repeat(3, 440px);
+  }
+
+  @media (max-width: 350px) {
+    grid-template-rows: repeat(3, 480px);
+  }
+
   .card {
     position: sticky;
-    top: 15vh;
+    top: calc(15vh + (var(--index, 1) * #{$card-offset}));
     height: $card-height;
-    padding-top: calc(var(--index, 1) * $card-offset);
     will-change: transform;
+
+    @media (max-width: 800px) {
+      height: 400px;
+    }
+
+    @media (max-width: 450px) {
+      height: 440px;
+    }
+
+    @media (max-width: 350px) {
+      height: 480px;
+    }
 
     &__content {
       position: relative;
       isolation: isolate;
       height: 100%;
-      padding: 48px;
+      padding: 32px 24px;
       display: flex;
       justify-content: space-between;
       flex-direction: column;
@@ -79,9 +122,21 @@ section {
       border-radius: 40px;
       box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 
+      @media (max-width: 800px) {
+        padding: 24px;
+        border-radius: 32px;
+      }
+
+      @media (max-width: 450px) {
+        padding: 16px;
+        gap: 12px;
+      }
+      
       transform-origin: center top;
       transform-style: preserve-3d;
-      will-change: transform, filter, opacity;
+      will-change: transform,
+      filter,
+      opacity;
 
       animation: scale-card linear forwards;
       animation-timeline: view();
@@ -103,16 +158,48 @@ section {
           width: 80px;
           height: auto;
           object-fit: contain;
+
+          @media (max-width: 800px) {
+            width: 60px;
+          }
         }
       }
 
       .feedback_text {
         font-family: $font-karla;
-        font-size: 1.5rem;
+        font-size: 1.25rem;
         line-height: 1.4;
         font-weight: 400;
         position: relative;
         z-index: 2;
+        flex: 1;
+        overflow-y: auto;
+
+        &::-webkit-scrollbar {
+          width: 4px;
+        }
+
+        &::-webkit-scrollbar-track {
+          background: rgba(255, 255, 255, 0.05);
+          border-radius: 4px;
+        }
+
+        &::-webkit-scrollbar-thumb {
+          background: rgba($color-accent, 0.5);
+          border-radius: 4px;
+        }
+
+        &::-webkit-scrollbar-thumb:hover {
+          background: rgba($color-accent, 0.8);
+        }
+
+        @media (max-width: 800px) {
+          font-size: 1.25rem;
+        }
+
+        @media (max-width: 450px) {
+          font-size: 1rem;
+        }
       }
 
       .author {
@@ -122,6 +209,10 @@ section {
         align-items: flex-end;
         justify-content: space-between;
         gap: 16px;
+
+        @media (max-width: 350px) {
+          flex-wrap: wrap;
+        }
 
         .author_info {
           display: flex;
@@ -133,11 +224,18 @@ section {
             font-size: 1.5rem;
             font-weight: 700;
             color: $color-accent;
+
+            @media (max-width: 800px) {
+              font-size: 1.25rem;
+            }
+
+            @media (max-width: 450px) {
+              font-size: 1rem;
+            }
           }
 
           span {
             color: $color-light-gray;
-            opacity: 0.8;
           }
         }
 
@@ -161,6 +259,14 @@ section {
         font-size: 5rem;
         font-weight: 700;
         opacity: 0.1;
+
+        @media (max-width: 800px) {
+          font-size: 4rem;
+        }
+
+        @media (max-width: 450px) {
+          font-size: 2.5rem;
+        }
       }
     }
   }
