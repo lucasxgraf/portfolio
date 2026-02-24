@@ -17,6 +17,7 @@ section {
 
 .contact_intro {
   flex: 1;
+  opacity: 1; 
 
   @media (max-width: 900px) {
     text-align: center;
@@ -54,24 +55,28 @@ section {
   flex: 1;
   max-width: 800px;
   @include flex-column();
-  border-top: 1px solid rgba($color-accent, 0.4);
   transition: border-color $defaultDuration ease;
 
   &:has(.input_group:first-of-type.error) {
-    border-top-color: $color-error;
+    .input_group:first-of-type {
+      border-top-color: $color-error;
+    }
   }
 
   .input_group {
     @include flex-column();
     min-height: 130px;
     padding: 24px 24px 44px;
+    border-top: 1px solid rgba($color-accent, 0.4);
     border-bottom: 1px solid rgba($color-accent, 0.4);
     transition: all $defaultDuration ease;
     position: relative;
+    margin-top: -1px; 
 
     &:hover,
     &:focus-within {
       background-color: rgba($color-accent, 0.03);
+      z-index: 2;
 
       .input_info label {
         color: $color-accent;
@@ -80,8 +85,9 @@ section {
     }
 
     &.error {
-      border-bottom-color: $color-error;
+      border-color: $color-error;
       background-color: rgba($color-error, 0.02);
+      z-index: 2;
 
       .input_info label { 
         color: $color-error; 
@@ -111,6 +117,7 @@ section {
         background: transparent;
         border: none;
         font-size: 1.25rem;
+        color: white;
 
         @media (max-width: 450px) { 
           font-size: 1rem !important; 
@@ -133,8 +140,8 @@ section {
       }
     }
 
-      textarea { 
-        resize: none;
+    textarea { 
+      resize: none;
     }
 
     .error_message {
@@ -218,7 +225,7 @@ section {
       height: 50px;
       @include flex-center();
 
-      &:hover {
+      &:hover:not(:disabled) {
         background-color: $color-accent;
         color: $color-bg-dark;
         border-color: $color-accent;
@@ -227,12 +234,6 @@ section {
       &:disabled {
         opacity: 0.3;
         cursor: not-allowed;
-
-        &:hover {
-          color: white;
-          border-color: white;
-          background-color: transparent;
-        }
       }
 
       .loader {
@@ -241,20 +242,9 @@ section {
         border: 2px solid rgba($color-accent, 0.2);
         border-top: 2px solid $color-accent;
         border-radius: 50%;
-        display: inline-block;
-        box-sizing: border-box;
         animation: rotation 0.8s linear infinite;
       }
     }
-  }
-
-  .success_message {
-    text-align: center;
-    color: $color-accent;
-    border: 1px solid rgba($color-accent, 0.5);
-    padding: 16px;
-    font-size: 1.125rem;
-    animation: fadeIn 0.5s ease;
   }
 }
 
@@ -263,7 +253,7 @@ section {
   bottom: 40px;
   left: 50%;
   transform: translateX(-50%);
-  background: rgba($color-bg-dark, 0.9);
+  background: rgba($color-bg-dark, 0.95);
   backdrop-filter: blur(10px);
   border: 1px solid rgba($color-accent, 0.3);
   padding: 16px 28px;
@@ -278,22 +268,16 @@ section {
 
   .toast_content {
     @include flex-start(row, center, 16px);
-
-    span {
-      font-weight: 500;
-      white-space: nowrap;
+    span { 
+      font-weight: 500; 
+      white-space: nowrap; 
     }
 
     .check_icon {
-      width: 24px;
-      height: 24px;
-      fill: none;
-      stroke: $color-accent;
-      stroke-width: 2.5;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-      stroke-dasharray: 50;
-      stroke-dashoffset: 50;
+      width: 24px; height: 24px; fill: none;
+      stroke: $color-accent; stroke-width: 2.5;
+      stroke-linecap: round; stroke-linejoin: round;
+      stroke-dasharray: 50; stroke-dashoffset: 50;
       animation: checkDraw 0.5s 0.3s forwards;
     }
   }
@@ -330,6 +314,11 @@ section {
 }
 
 @keyframes rotation {
-  0%   { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes errorReveal {
+  from { opacity: 0; transform: translateY(5px); }
+  to { opacity: 1; transform: translateY(0); }
 }

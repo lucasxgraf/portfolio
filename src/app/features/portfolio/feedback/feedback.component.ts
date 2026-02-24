@@ -2,6 +2,9 @@ import { Component, AfterViewInit, ElementRef, ViewChildren, QueryList, OnDestro
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
 import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger'; // ScrollTrigger importieren
+
+gsap.registerPlugin(ScrollTrigger);
 
 @Component({
   selector: 'app-feedback',
@@ -21,13 +24,55 @@ export class FeedbackComponent implements AfterViewInit, OnDestroy {
 
   @ViewChildren('card', { read: ElementRef }) cards!: QueryList<ElementRef<HTMLElement>>;
 
-  constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
+  constructor(@Inject(PLATFORM_ID) private platformId: Object, private el: ElementRef) {}
 
   ngAfterViewInit() {
     if (isPlatformBrowser(this.platformId)) {
       this.initCards();
       this.setupTiltEffect();
+      
+      // Kleiner Timeout, damit die Initialisierung der Karten abgeschlossen ist
+      setTimeout(() => {
+        this.initEntranceAnimation();
+      }, 100);
     }
+  }
+
+  private initEntranceAnimation() {
+    const root = this.el.nativeElement;
+    
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: root.querySelector('#feedback'),
+        start: 'top 90%', // Startet früh für besseren Flow
+        toggleActions: 'play none none none',
+      }
+    });
+
+    // 1. Header (Subtitle & Title)
+    tl.from(root.querySelector('.section_subtitle'), {
+      opacity: 0,
+      y: 10,
+      duration: 0.4,
+      ease: 'power2.out'
+    })
+    .from(root.querySelector('.section_title'), {
+      opacity: 0,
+      y: 15,
+      duration: 0.5,
+      ease: 'power3.out'
+    }, '-=0.2');
+
+    // 2. Der gesamte Slider-Bereich
+    // Wir lassen den Wrapper leicht von unten kommen und dezent skalieren (minimal!)
+    tl.from([root.querySelector('.slider_wrapper'), root.querySelector('.slider_controls')], {
+      opacity: 0,
+      y: 20,
+      scale: 0.98, // Wirkt wie ein "Setzen" der Karte
+      duration: 0.7,
+      stagger: 0.1,
+      ease: 'power3.out'
+    }, '-=0.3');
   }
 
   private initCards() {
@@ -222,6 +267,7 @@ export class FeedbackComponent implements AfterViewInit, OnDestroy {
   }
 
   ngOnDestroy() {
+    ScrollTrigger.getAll().forEach(t => t.kill());
     gsap.killTweensOf('*');
   }
 }
