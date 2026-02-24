@@ -150,6 +150,7 @@ section {
   .skill_item {
     @include flex-column(16px, flex-start, center);
     transition: transform $defaultDuration ease;
+    backface-visibility: hidden; 
 
     .skill_icon {
       width: 64px;
