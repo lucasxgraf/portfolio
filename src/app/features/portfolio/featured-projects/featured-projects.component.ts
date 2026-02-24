@@ -1,6 +1,10 @@
-import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, AfterViewInit, ElementRef, OnDestroy, PLATFORM_ID, Inject } from '@angular/core';
+import { isPlatformBrowser, CommonModule } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 export interface Technology {
   name: string;
@@ -18,13 +22,70 @@ export interface Project {
 
 @Component({
   selector: 'app-featured-projects',
+  standalone: true,
   imports: [CommonModule, TranslateModule],
   templateUrl: './featured-projects.component.html',
   styleUrl: './featured-projects.component.scss',
 })
-export class FeaturedProjects {
+export class FeaturedProjects implements AfterViewInit, OnDestroy {
   hoveredIndex: number | null = null;
   selectedProjectIndex: number | null = null;
+
+   constructor(
+    private el: ElementRef,
+    @Inject(PLATFORM_ID) private platformId: Object
+  ) {}
+
+  ngAfterViewInit() {
+    if (isPlatformBrowser(this.platformId)) {
+      setTimeout(() => this.initEntranceAnimation(), 150);
+    }
+  }
+
+ initEntranceAnimation() {
+  const root = this.el.nativeElement;
+  const rows = root.querySelectorAll('.featured_project_row');
+  
+  const timeline = gsap.timeline({
+    scrollTrigger: {
+      trigger: root.querySelector('#featuredProjects'),
+      start: 'top 95%',
+      toggleActions: 'play none none none',
+    }
+  });
+
+  timeline.from(root.querySelector('.featured_projects_subtitle'), {
+    opacity: 0,
+    y: 10,
+    duration: 0.4,
+    ease: 'power2.out'
+  })
+
+  .from([
+    root.querySelector('.featured_projects_title'),
+    root.querySelector('.featured_projects_description')
+  ], {
+    opacity: 0,
+    y: 15,
+    duration: 0.6,
+    stagger: 0.1,
+    ease: 'power3.out'
+  }, '-=0.3')
+
+  .from(rows, {
+    opacity: 0,
+    y: 20,
+    duration: 0.6,
+    stagger: 0.08,
+    ease: 'power3.out',
+    clearProps: 'all'
+  }, '-=0.5');
+}
+
+  ngOnDestroy() {
+    ScrollTrigger.getAll().forEach(t => t.kill());
+  }
+
 
   private techMap: Record<string, string> = {
     HTML: 'assets/img/skills/frontend/html.png',
