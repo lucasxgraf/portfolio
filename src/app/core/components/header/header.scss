@@ -16,6 +16,17 @@ header {
     height: 80px;
   }
 
+  .header_wrapper {
+      @include flex-between(); 
+      flex-direction: row !important;
+      width: 100%;
+      height: 100%;
+      
+      @media (max-width: 800px) {
+        flex-direction: row-reverse !important;
+      }
+    }
+
   .header_left {
     z-index: 1001;
     @include flex-center(row, 24px);
@@ -126,18 +137,49 @@ header {
 
   .logo_container {
     z-index: 1001;
+    text-decoration: none;
+    @include flex-center(row, 12px); 
+    transition: transform $defaultDuration ease;
 
-    img {
-      width: 256px;
-      height: auto;
-      max-height: 56px;
+    @media (max-width: 800px) {
+      gap: 8px;
+    }
+
+    &:hover {
+      transform: scale(1.05);
+      .logo_text { color: $color-accent; }
+      .bracket_path { stroke: white; }
+    }
+
+    .logo_text {
+      font-family: 'Karla', sans-serif;
+      font-size: 32px;
+      font-weight: 700;
+      color: white;
+      line-height: 1;
+      transition: color $defaultDuration ease;
 
       @media (max-width: 800px) {
-        width: 180px;
+        font-size: 24px;
+      }
+    }
+
+    .header_brackets {
+      height: 32px;
+      width: auto;
+      overflow: visible;
+
+      @media (max-width: 800px) {
+        height: 24px;
       }
 
-      &:hover {
-        filter: drop-shadow(0 0 2px white);
+      .bracket_path {
+        stroke: $color-accent;
+        stroke-width: 12;
+        stroke-linecap: square;
+        stroke-linejoin: miter;
+        fill: none;
+        transition: stroke $defaultDuration ease;
       }
     }
   }

@@ -18,12 +18,12 @@ footer {
       @media (max-width: 800px) {
         @include flex-column(32px, center, center); 
         height: auto;
-        padding: 24px 0;
+        padding: 40px 0;
         text-align: center;
       }
 
       .logo_and_text {
-        @include flex-column(); 
+        @include flex-column(12px);
         justify-self: start;
 
         @media (max-width: 800px) {
@@ -31,30 +31,50 @@ footer {
           order: 1;
         }
 
-        img {
-          width: 200px;
-          transition: filter 125ms ease-in-out;
-          cursor: pointer;
-          
+        .footer_logo_link {
+          @include flex-center(row, 12px);
+          text-decoration: none;
+          transition: transform $defaultDuration ease;
+
           &:hover {
-            filter: drop-shadow(0 0 2px white); 
+            transform: scale(1.05);
+
+            .bracket_path { 
+              stroke: white; 
+            }
+          }
+
+          .logo_text {
+            font-size: 1.25rem;
+            font-weight: 700;
+            line-height: 1;
+          }
+
+          .footer_brackets {
+            height: 24px;
+            width: auto;
+            overflow: visible;
+
+            .bracket_path {
+              stroke: $color-accent;
+              stroke-width: 12;
+              stroke-linecap: square;
+              stroke-linejoin: miter;
+              fill: none;
+              transition: stroke $defaultDuration ease;
+            }
           }
         }
 
         p {
-          margin: 0 0 8px;
-
-          @media (min-width: 801px) {
-            margin: 0 8px 8px;
-          }
+          color: $color-light-gray;
         }
       }
 
       .copyright {
         justify-self: center;
-
-        @media (max-width: 800px) {
-          order: 3;
+        @media (max-width: 800px) { 
+          order: 3; 
         }
 
         p {
@@ -67,17 +87,16 @@ footer {
       .footer_links {
         @include flex-column(16px);
         justify-self: end;
-
-        @media (max-width: 800px) {
-          align-items: center;
-          order: 2;
+        @media (max-width: 800px) { 
+          align-items: center; 
+          order: 2; 
         }
 
         a {
           position: relative;
           cursor: pointer;
           transition: color 125ms ease-in-out, transform 125ms ease-in-out; 
-
+          
           &:hover {
             color: $color-accent;
             transform: scale(1.1);
