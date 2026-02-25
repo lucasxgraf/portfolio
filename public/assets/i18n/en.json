@@ -37,10 +37,12 @@
     "SUB_TITLE": "Portfolio",
     "TITLE": "Featured Projects",
     "DESCRIPTION": "Explore a selection of my work - Interact with projects to see my skills in action.",
+    "COMING_SOON": "Coming Soon",
     "DIALOG": {
       "QUESTION": "What is this project about?",
       "GITHUB": "GitHub",
       "LIVE_TEST": "Live Test",
+      "UPCOMING_NOTICE": "This project is currently under development.",
       "NEXT_PROJECT": "Next project",
       "PREV_PROJECT": "Previous project"
     },
@@ -48,11 +50,11 @@
       "JOIN": {
         "DESCRIPTION": "Web-based Kanban app for task management: Users can create, organise and track tasks in interactive lists - ideal for individuals or teams."
       },
-      "POKEDEX": {
-        "DESCRIPTION": "A Pokédex web app that fetches data from the PokéAPI: Browse, search and view detailed stats for all Pokémon generations."
-      },
       "EL_POLLO_LOCO": {
         "DESCRIPTION": "A 2D jump-and-run browser game built with object-oriented JavaScript: Defeat enemies, collect items and reach the final boss."
+      },
+      "POLL_APP": {
+        "DESCRIPTION": "Poll App is an Angular app for creating, sharing, and evaluating surveys in real time—with Supabase as the backend for authentication and data storage."
       }
     }
   },
@@ -73,10 +75,10 @@
         "GITHUB_LINK": "https://github.com/213Leon213"
       },
       {
-        "NAME": "Tizian Borges Jost",
+        "NAME": "Anne Sanewski",
         "PROJECT": "Kochwelt",
-        "TEXT": "Lucas has a sharp eye for detail and a deep understanding of frontend architectures. His contributions to our projects were always of the highest quality.",
-        "GITHUB_LINK": ""
+        "TEXT": "Working with Lucas was a great experience. He is proactive, reliable, and friendly, which created a very relaxed working atmosphere. Thanks to his structured approach, we were able to reach our goals quickly. It was a pleasure collaborating with him.",
+        "GITHUB_LINK": "https://github.com/Saki63"
       }
     ]
   },

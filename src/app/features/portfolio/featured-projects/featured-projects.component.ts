@@ -18,6 +18,7 @@ export interface Project {
   githubLink: string;
   liveTestLink: string;
   descriptionKey: string;
+  isUpcoming?: boolean;
 }
 
 @Component({
@@ -92,7 +93,10 @@ export class FeaturedProjects implements AfterViewInit, OnDestroy {
     CSS: 'assets/img/skills/frontend/css.png',
     JavaScript: 'assets/img/skills/frontend/javaScript.png',
     Firebase: 'assets/img/skills/tools/firebase.png',
-    RestAPI: 'assets/img/skills/tools/rest-api.png',
+    Angular: 'assets/img/skills/frontend/angular.png',
+    TypeScript: 'assets/img/skills/frontend/typeScript.png',
+    Supabase: 'assets/img/skills/tools/supabase.jpeg',
+    SCSS: 'assets/img/skills/frontend/scss.png',
   };
 
   projects: Project[] = [
@@ -105,14 +109,6 @@ export class FeaturedProjects implements AfterViewInit, OnDestroy {
       descriptionKey: 'FEATURED-PROJECTS.PROJECTS.JOIN.DESCRIPTION',
     },
     {
-      name: 'Pokedex',
-      technologies: this.buildTech(['HTML', 'CSS', 'JavaScript', 'RestAPI']),
-      previewImage: 'assets/img/featured-projects/preview-projects/pokedex.png',
-      githubLink: 'https://github.com/lucasxgraf/pokedex',
-      liveTestLink: 'https://pokedex.lucasgraf.com',
-      descriptionKey: 'FEATURED-PROJECTS.PROJECTS.POKEDEX.DESCRIPTION',
-    },
-    {
       name: 'El Pollo Loco',
       technologies: this.buildTech(['HTML', 'CSS', 'JavaScript']),
       previewImage: 'assets/img/featured-projects/preview-projects/el-pollo-loco.png',
@@ -120,6 +116,15 @@ export class FeaturedProjects implements AfterViewInit, OnDestroy {
       liveTestLink: 'https://el-pollo-loco.lucasgraf.com',
       descriptionKey: 'FEATURED-PROJECTS.PROJECTS.EL_POLLO_LOCO.DESCRIPTION',
     },
+    {
+      name: 'Poll App',
+      technologies: this.buildTech(['Angular', 'HTML', 'SCSS', 'TypeScript', 'Supabase']),
+      previewImage: 'assets/img/featured-projects/preview-projects/poll-app.png',
+      githubLink: '',
+      liveTestLink: '',
+      descriptionKey: 'FEATURED-PROJECTS.PROJECTS.POLL_APP.DESCRIPTION',
+      isUpcoming: true
+    }
   ];
 
   private buildTech(names: string[]): Technology[] {

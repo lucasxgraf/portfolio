@@ -14,8 +14,14 @@
           <div class="featured_project_row" [class.active]="hoveredIndex === $index"
             (mouseenter)="hoveredIndex = $index" (mouseleave)="hoveredIndex = null" (click)="openDialog($index)">
             <div class="featured_project_info">
-              <h3>{{ project.name }} <img src="assets/img/featured-projects/arrow_outward.svg" alt="arrow"
-                  class="arrow"></h3>
+              <h3>
+                {{ project.name }}
+                @if (project.isUpcoming) {
+                  <span class="badge_upcoming">{{ "FEATURED-PROJECTS.COMING_SOON" | translate }}</span>
+                } @else {
+                  <img src="assets/img/featured-projects/arrow_outward.svg" alt="arrow" class="arrow">
+                }
+              </h3>
             </div>
             <div class="featured_project_tech">
               @for (tech of project.technologies; track $index) {
@@ -49,7 +55,12 @@
 
       <div class="dialog_content">
         <div class="dialog_left">
-          <span class="dialog_project_number">{{ formattedProjectNumber }}</span>
+          <div class="dialog_title_wrapper">
+            <span class="dialog_project_number">{{ formattedProjectNumber }}</span>
+            @if (selectedProject.isUpcoming) {
+              <span class="badge_upcoming_large">{{ "FEATURED-PROJECTS.COMING_SOON" | translate }}</span>
+            }
+          </div>
           <h2 class="dialog_project_name">{{ selectedProject.name }}</h2>
 
           <h4 class="dialog_question">{{ "FEATURED-PROJECTS.DIALOG.QUESTION" | translate }}</h4>
@@ -65,15 +76,24 @@
           </div>
 
           <div class="dialog_actions">
-            <a [href]="selectedProject.githubLink" target="_blank" rel="noopener noreferrer" class="dialog_btn">
-              {{ "FEATURED-PROJECTS.DIALOG.GITHUB" | translate }}
-              <img src="assets/img/featured-projects/arrow_outward.svg" alt="arrow" class="btn_arrow">
-            </a>
-            <a [href]="selectedProject.liveTestLink" target="_blank" rel="noopener noreferrer"
-              class="dialog_btn dialog_btn_outline">
-              {{ "FEATURED-PROJECTS.DIALOG.LIVE_TEST" | translate }}
-              <img src="assets/img/featured-projects/arrow_outward.svg" alt="arrow" class="btn_arrow">
-            </a>
+            @if (selectedProject.githubLink) {
+              <a [href]="selectedProject.githubLink" target="_blank" rel="noopener noreferrer" class="dialog_btn">
+                {{ "FEATURED-PROJECTS.DIALOG.GITHUB" | translate }}
+                <img src="assets/img/featured-projects/arrow_outward.svg" alt="arrow" class="btn_arrow">
+              </a>
+            }
+
+            @if (selectedProject.liveTestLink) {
+              <a [href]="selectedProject.liveTestLink" target="_blank" rel="noopener noreferrer"
+                class="dialog_btn dialog_btn_outline">
+                {{ "FEATURED-PROJECTS.DIALOG.LIVE_TEST" | translate }}
+                <img src="assets/img/featured-projects/arrow_outward.svg" alt="arrow" class="btn_arrow">
+              </a>
+            }
+
+            @if (selectedProject.isUpcoming) {
+              <p class="upcoming_notice">{{ "FEATURED-PROJECTS.DIALOG.UPCOMING_NOTICE" | translate }}</p>
+            }
           </div>
         </div>
 

@@ -123,6 +123,7 @@ section {
         z-index: 2;
         flex: 1;
         overflow-y: auto;
+       @include flex-center;
 
         &::-webkit-scrollbar { width: 4px; }
         &::-webkit-scrollbar-track { background: rgba(255, 255, 255, 0.05); }

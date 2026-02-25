@@ -2,7 +2,7 @@ import { Component, AfterViewInit, ElementRef, ViewChildren, QueryList, OnDestro
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
 import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger'; // ScrollTrigger importieren
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -31,7 +31,6 @@ export class FeedbackComponent implements AfterViewInit, OnDestroy {
       this.initCards();
       this.setupTiltEffect();
       
-      // Kleiner Timeout, damit die Initialisierung der Karten abgeschlossen ist
       setTimeout(() => {
         this.initEntranceAnimation();
       }, 100);
@@ -44,12 +43,11 @@ export class FeedbackComponent implements AfterViewInit, OnDestroy {
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: root.querySelector('#feedback'),
-        start: 'top 90%', // Startet früh für besseren Flow
+        start: 'top 90%',
         toggleActions: 'play none none none',
       }
     });
 
-    // 1. Header (Subtitle & Title)
     tl.from(root.querySelector('.section_subtitle'), {
       opacity: 0,
       y: 10,
@@ -63,12 +61,10 @@ export class FeedbackComponent implements AfterViewInit, OnDestroy {
       ease: 'power3.out'
     }, '-=0.2');
 
-    // 2. Der gesamte Slider-Bereich
-    // Wir lassen den Wrapper leicht von unten kommen und dezent skalieren (minimal!)
     tl.from([root.querySelector('.slider_wrapper'), root.querySelector('.slider_controls')], {
       opacity: 0,
       y: 20,
-      scale: 0.98, // Wirkt wie ein "Setzen" der Karte
+      scale: 0.98,
       duration: 0.7,
       stagger: 0.1,
       ease: 'power3.out'

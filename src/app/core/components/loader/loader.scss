@@ -10,7 +10,11 @@
 }
 
 .loader_main {
-  @include flex-center(row, 32px); 
+  @include flex-center(row, 32px);
+
+  @media (max-width: 480px) {
+    gap: 16px;
+  }
 }
 
 .logo_vessel {
@@ -19,6 +23,14 @@
   justify-content: center;
   position: relative;
   z-index: 10;
+
+  @media (max-width: 480px) {
+    width: 70px;
+  }
+
+  @media (max-width: 360px) {
+    width: 55px;
+  }
 }
 
 .logo_svg {
@@ -64,6 +76,14 @@
   opacity: 0;
   filter: blur(5px);
   animation: slideOut 1s cubic-bezier(0.22, 1, 0.36, 1) 1.1s forwards;
+
+  @media (max-width: 480px) {
+    font-size: 2rem;
+  }
+
+  @media (max-width: 360px) {
+    font-size: 1.5rem;
+  }
 }
 
 .left_mask .name { 
@@ -101,7 +121,15 @@
 
 @keyframes expandMask {
   to { 
-    width: 200px; 
+    width: 200px;
+
+    @media (max-width: 480px) {
+      width: 140px; 
+    }
+
+    @media (max-width: 360px) { 
+      width: 110px; 
+    }
   }
 }
 
