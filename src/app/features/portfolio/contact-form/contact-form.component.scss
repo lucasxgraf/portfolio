@@ -250,9 +250,11 @@ section {
 
 .toast_feedback {
   position: fixed;
-  bottom: 40px;
+  bottom: 24px;
   left: 50%;
   transform: translateX(-50%);
+  width: 90%;
+  max-width: 400px;
   background: rgba($color-bg-dark, 0.95);
   backdrop-filter: blur(10px);
   border: 1px solid rgba($color-accent, 0.3);
@@ -266,18 +268,31 @@ section {
     toastSlideIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards,
     toastFadeOut 0.5s 3.5s ease-in forwards;
 
+    @media (min-width: 450px) {
+    bottom: 40px;
+    width: auto;
+    min-width: 300px;
+  }
+
   .toast_content {
     @include flex-start(row, center, 16px);
+
     span { 
       font-weight: 500; 
-      white-space: nowrap; 
+      white-space: normal; 
     }
 
     .check_icon {
-      width: 24px; height: 24px; fill: none;
-      stroke: $color-accent; stroke-width: 2.5;
-      stroke-linecap: round; stroke-linejoin: round;
-      stroke-dasharray: 50; stroke-dashoffset: 50;
+      flex-shrink: 0;
+      width: 24px; 
+      height: 24px; 
+      fill: none;
+      stroke: $color-accent; 
+      stroke-width: 2.5;
+      stroke-linecap: round; 
+      stroke-linejoin: round;
+      stroke-dasharray: 50; 
+      stroke-dashoffset: 50;
       animation: checkDraw 0.5s 0.3s forwards;
     }
   }
@@ -295,7 +310,7 @@ section {
 }
 
 @keyframes toastSlideIn {
-  from { opacity: 0; transform: translate(-50%, 40px); }
+  from { opacity: 0; transform: translate(-50%, 60px); }
   to   { opacity: 1; transform: translate(-50%, 0); }
 }
 

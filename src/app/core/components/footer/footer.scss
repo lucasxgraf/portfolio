@@ -34,7 +34,8 @@ footer {
         img {
           width: 200px;
           transition: filter 125ms ease-in-out;
-
+          cursor: pointer;
+          
           &:hover {
             filter: drop-shadow(0 0 2px white); 
           }
