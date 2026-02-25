@@ -1,12 +1,26 @@
 @if (isVisible) {
   <div class="overlay">
-    <div class="center_container">
-      <div class="typing_container">
-        <span>Lucas</span>
-        <span class="chevron_inline">&lt;&gt;</span>
-        <span>Graf</span>
+    <div class="loader_main">
+      
+      <!-- Linker Name -->
+      <div class="name_mask left_mask">
+        <div class="name">Lucas</div>
       </div>
-      <div class="underline"></div>
+
+      <!-- Zentrales Logo -->
+      <div class="logo_vessel">
+        <!-- ViewBox startet jetzt bei 30 und endet bei 110 (Breite 80) -->
+        <svg class="logo_svg" viewBox="30 0 80 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path class="bracket bracket_l" d="M55 10 L30 30 L55 50" stroke="#22B29C" stroke-width="10" stroke-linecap="square" stroke-linejoin="miter"/>
+          <path class="bracket bracket_r" d="M85 10 L110 30 L85 50" stroke="#22B29C" stroke-width="10" stroke-linecap="square" stroke-linejoin="miter"/>
+        </svg>
+      </div>
+
+      <!-- Rechter Name -->
+      <div class="name_mask right_mask">
+        <div class="name">Graf</div>
+      </div>
+
     </div>
   </div>
 }
