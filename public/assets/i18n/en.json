@@ -26,7 +26,7 @@
   "SKILLS": {
     "SUB_TITLE": "Technologies",
     "TITLE": "Skill Set",
-    "DESCRIPTION": "Technology is my toolbox for solving real problems. I enjoy working with modern front-end tools and understanding how things work under the hood. The fast pace of the web excites me — new frameworks and best practices are a constant opportunity to grow. Clear structure, logical solutions and maintainable code guide how I work.",
+    "DESCRIPTION": "Technology is my toolbox for solving real problems. I enjoy working with modern front-end tools and understanding how things work under the hood. The fast pace of the web excites me — new frameworks and best practices are a constant opportunity to grow. Through my intensive training, I’ve learned to write clean, maintainable code within agile team environments. I’m a fast learner who always considers the business value behind every technical solution.",
     "CTA": "Looking for something",
     "CTA_SKILL": "specific?",
     "CONTACT_ME": "Contact me! I’m always expanding my stack.",
@@ -85,7 +85,7 @@
   "CONTACT-FORM": {
     "SUB_TITLE": "Contact me",
     "TITLE": "Let's work together",
-    "DESCRIPTION_TITLE": "Need to solve a problem?",
+    "DESCRIPTION_TITLE": "Looking for a motivated addition to your team?",
     "DESCRIPTION": "I enjoy contributing to real projects and getting involved in new challenges. I’m especially motivated by environments where I can take ownership and grow step by step.  With my business background, I bring a structured, solution-oriented perspective to technical challenges and think beyond code in terms of product and user value.",
     "DESCRIPTION_CTA": "If you’re looking for a frontend developer who thinks ahead, takes ownership and wants to grow long-term -",
     "DESCRIPTION_CTA_TALK": " we should talk!",
