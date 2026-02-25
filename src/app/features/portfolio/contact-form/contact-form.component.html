@@ -22,7 +22,7 @@
           <div class="input_field">
             <input #name="ngModel" [(ngModel)]="contactData.name" 
               [ngModelOptions]="{ updateOn: 'blur' }"
-              type="text" id="name" name="name"
+              type="text" id="name" name="name" autocomplete="name"
               [placeholder]="'CONTACT-FORM.NAME_INPUT_PLACEHOLDER' | translate" required />
             @if (name.invalid && name.touched) {
               <span class="error_message">{{ "CONTACT-FORM.NAME_INPUT_ERROR" | translate }}</span>
@@ -37,7 +37,7 @@
           <div class="input_field">
             <input #email="ngModel" [(ngModel)]="contactData.email" 
               [ngModelOptions]="{ updateOn: 'blur' }"
-              type="email" id="email" name="email"
+              type="email" id="email" name="email" autocomplete="email"
               [placeholder]="'CONTACT-FORM.EMAIL_INPUT_PLACEHOLDER' | translate"
               pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}" required />
             @if (email.invalid && email.touched) {
