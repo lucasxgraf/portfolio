@@ -95,18 +95,20 @@ export class FeedbackComponent implements AfterViewInit, OnDestroy {
     });
   }
 
-  async goToSlide(index: number) {
-    if (this.shouldSkipSlideChange(index)) return;
-    
-    this.isAnimating = true;
-    const isNext = index > this.currentIndex;
-    
-    const { currentCard, nextCard } = this.getCardsForTransition(index);
-    this.currentIndex = index;
-    
-    this.prepareNextCardForTransition(nextCard);
-    this.executeSlideTransition(currentCard, nextCard, isNext);
-  }
+  async goToSlide(index: number, direction?: 'next' | 'prev') {
+  if (this.shouldSkipSlideChange(index)) 
+    return;
+  
+  this.isAnimating = true;
+  
+  const isNext = direction ? (direction === 'next') : (index > this.currentIndex);
+  
+  const { currentCard, nextCard } = this.getCardsForTransition(index);
+  this.currentIndex = index;
+  
+  this.prepareNextCardForTransition(nextCard);
+  this.executeSlideTransition(currentCard, nextCard, isNext);
+}
 
   private shouldSkipSlideChange(index: number): boolean {
     return this.isAnimating || index === this.currentIndex;
@@ -173,14 +175,14 @@ export class FeedbackComponent implements AfterViewInit, OnDestroy {
   }
 
   next() {
-    const nextIndex = (this.currentIndex + 1) % this.feedbacks.length;
-    this.goToSlide(nextIndex);
-  }
+  const nextIndex = (this.currentIndex + 1) % this.feedbacks.length;
+  this.goToSlide(nextIndex, 'next');
+}
 
   prev() {
-    const prevIndex = (this.currentIndex - 1 + this.feedbacks.length) % this.feedbacks.length;
-    this.goToSlide(prevIndex);
-  }
+  const prevIndex = (this.currentIndex - 1 + this.feedbacks.length) % this.feedbacks.length;
+  this.goToSlide(prevIndex, 'prev');
+}
 
   private setupTiltEffect() {
     this.cards.forEach((cardRef) => {
