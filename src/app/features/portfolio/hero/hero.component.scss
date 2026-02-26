@@ -92,6 +92,22 @@ section {
           justify-content: center;
         }
       }
+
+      .btn {
+        transition: all 125ms ease-in-out;
+        cursor: pointer;
+        
+        &:hover {
+          background-color: rgba($color-accent, 0.1); 
+          border-color: $color-accent;
+          transform: translateY(-2px);
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        &:active {
+          transform: translateY(0);
+        }
+      }
     }
   }
 }
