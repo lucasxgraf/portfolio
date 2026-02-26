@@ -91,26 +91,31 @@ export class ContactFormComponent implements AfterViewInit, OnDestroy {
   }
 
   onSubmit(ngForm: NgForm) {
-    if (ngForm.submitted && ngForm.form.valid && !this.isSending) {
-      this.isSending = true;
-      this.http.post(this.post.endPoint, this.contactData, this.post.options)
-        .subscribe({
-          next: (response) => {
-            this.isSending = false;
-            this.mailSent = true;
-            ngForm.resetForm();
-            setTimeout(() => { 
-              this.mailSent = false; 
-            }, 4000);
-          },
-          error: (error) => {
-            console.error(error);
-            this.isSending = false;
-          },
-          complete: () => console.info('send post complete'),
-        });
-    }
+  if (ngForm.invalid) {
+    ngForm.control.markAllAsTouched();
+    return;
   }
+
+  if (!this.isSending) {
+    this.isSending = true;
+    this.http.post(this.post.endPoint, this.contactData, this.post.options)
+      .subscribe({
+        next: (response) => {
+          this.isSending = false;
+          this.mailSent = true;
+          ngForm.resetForm();
+          setTimeout(() => { 
+            this.mailSent = false; 
+          }, 4000);
+        },
+        error: (error) => {
+          console.error(error);
+          this.isSending = false;
+        },
+        complete: () => console.info('send post complete'),
+      });
+  }
+}
 
   ngOnDestroy() {
     ScrollTrigger.getAll().forEach(t => t.kill());
