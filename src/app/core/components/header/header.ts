@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { LanguageService } from '../../services/language.service';
 import { TranslateModule } from '@ngx-translate/core';
 import { RouterLink } from "@angular/router";
@@ -9,16 +9,21 @@ import { RouterLink } from "@angular/router";
   templateUrl: './header.html',
   styleUrl: './header.scss',
 })
-export class Header {
+export class Header implements OnInit {
   isEnglish = true;
   isMenuOpen = false;
 
   constructor(private languageService: LanguageService) { }
 
+  ngOnInit() {
+    this.languageService.currentLang$.subscribe(lang => {
+      this.isEnglish = lang === 'en';
+    });
+  }
+
   changeLanguage() {
-    this.isEnglish = !this.isEnglish;
-    const lang = this.isEnglish ? 'en' : 'de';
-    this.languageService.changeLang(lang);
+    const nextLang = this.isEnglish ? 'de' : 'en';
+    this.languageService.changeLang(nextLang);
   }
 
   toggleMenu() {

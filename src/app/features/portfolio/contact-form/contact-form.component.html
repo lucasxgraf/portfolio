@@ -76,7 +76,8 @@
           </div>
 
           <div class="submit_container">
-            <button type="submit" class="submit_btn btn" [disabled]="contactForm.invalid || isSending">
+            <button type="submit" class="submit_btn btn" 
+              [disabled]="name.invalid || email.invalid || message.invalid || isSending">
               @if (isSending) {
                 <span class="loader"></span>
               } @else {
