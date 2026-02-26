@@ -11,7 +11,6 @@ section {
   @media (max-width: 900px) {
     flex-direction: column;
     gap: 48px;
-    align-items: center;
   }
 }
 
@@ -39,11 +38,17 @@ section {
   .contact_title {
     @include section-title-styles();
     margin-bottom: 32px;
+
+    @media (max-width: 375px) {
+      font-size: 2rem;
+    }
   }
 
   .contact_description {
     line-height: 1.5;
     text-align: start;
+    word-wrap: break-word;
+    hyphens: auto;
 
     span { 
       color: $color-accent; 
