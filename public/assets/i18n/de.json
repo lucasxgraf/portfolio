@@ -31,7 +31,7 @@
     "CTA_SKILL": "Technologie?",
     "CONTACT_ME": "Kontaktiere mich! Ich erweitere mein Skillset kontinuierlich.",
     "CTA_BUTTON": "Reden wir",
-    "LEARNING_INTEREST": "Ich habe ein besonderes Interesse am Lernen"
+    "TOOLTIP": "Ich habe ein besonderes Interesse am Lernen von"
   },
   "FEATURED-PROJECTS": {
     "SUB_TITLE": "Portfolio",
@@ -87,7 +87,7 @@
     "TITLE": "Lass uns zusammenarbeiten",
     "DESCRIPTION_TITLE": "Suchen Sie Verstärkung für Ihr Team?",
     "DESCRIPTION": "Ich arbeite gerne an realen Projekten mit und bringe mich aktiv in neue Herausforderungen ein. Besonders reizt mich ein Umfeld, in dem ich Verantwortung übernehmen und mich Schritt für Schritt weiterentwickeln kann. Durch meinen Business-Background bringe ich eine strukturierte, lösungsorientierte Perspektive in technische Herausforderungen ein und denke über Code hinaus auch in Produkt- und Nutzerwert.",
-    "DESCRIPTION_CTA": "Wenn Du einen Frontend Developer suchst, der mitdenkt, Verantwortung übernehmen möchte und langfristig wachsen will, sollten wir miteinander sprechen.",
+    "DESCRIPTION_CTA": "Wenn Du einen Frontend Developer suchst, der mitdenkt, Verantwortung übernehmen möchte und langfristig wachsen will,",
     "DESCRIPTION_CTA_TALK": "sollten wir miteinander sprechen.",
     "NAME_LABEL": "Wie ist Dein Name?",
     "NAME_INPUT_PLACEHOLDER": "Lass mich Deinen Namen wissen",
