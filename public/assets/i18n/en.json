@@ -55,6 +55,9 @@
       },
       "POLL_APP": {
         "DESCRIPTION": "Poll App is an Angular app for creating, sharing, and evaluating surveys in real time—with Supabase as the backend for authentication and data storage."
+      },
+      "CODE_A_CUISINE": {
+        "DESCRIPTION": "Never stand in front of the fridge at a loss again! This smart web app with AI automation automatically suggests recipes based on the ingredients you already have at home. This way, you save time, avoid food waste, and get fresh inspiration for your everyday cooking."
       }
     }
   },

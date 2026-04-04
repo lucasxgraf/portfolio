@@ -87,7 +87,6 @@ export class FeaturedProjects implements AfterViewInit, OnDestroy {
     ScrollTrigger.getAll().forEach(t => t.kill());
   }
 
-
   private techMap: Record<string, string> = {
     HTML: 'assets/img/skills/frontend/html.png',
     CSS: 'assets/img/skills/frontend/css.png',
@@ -97,6 +96,7 @@ export class FeaturedProjects implements AfterViewInit, OnDestroy {
     TypeScript: 'assets/img/skills/frontend/typeScript.png',
     Supabase: 'assets/img/skills/tools/supabase.jpeg',
     SCSS: 'assets/img/skills/frontend/scss.png',
+    N8N: 'assets/img/skills/tools/n8n.png',
   };
 
   projects: Project[] = [
@@ -120,10 +120,17 @@ export class FeaturedProjects implements AfterViewInit, OnDestroy {
       name: 'Poll App',
       technologies: this.buildTech(['Angular', 'HTML', 'SCSS', 'TypeScript', 'Supabase']),
       previewImage: 'assets/img/featured-projects/preview-projects/poll-app.png',
-      githubLink: '',
-      liveTestLink: '',
+      githubLink: 'https://github.com/lucasxgraf/poll-app',
+      liveTestLink: 'https://poll-app.lucasgraf.com',
       descriptionKey: 'FEATURED-PROJECTS.PROJECTS.POLL_APP.DESCRIPTION',
-      isUpcoming: true
+    },
+    {
+      name: 'Code a Cuisine',
+      technologies: this.buildTech(['Angular', 'HTML', 'SCSS', 'TypeScript', 'Supabase', 'N8N']),
+      previewImage: 'assets/img/featured-projects/preview-projects/code-a-cuisine.png',
+      githubLink: 'https://github.com/lucasxgraf/code-a-cuisine',
+      liveTestLink: 'https://code-a-cuisine.lucasgraf.com',
+      descriptionKey: 'FEATURED-PROJECTS.PROJECTS.CODE_A_CUISINE.DESCRIPTION',
     }
   ];
 
