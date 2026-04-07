@@ -6,7 +6,7 @@ import { TranslateService } from '@ngx-translate/core';
   providedIn: 'root',
 })
 export class LanguageService {
-  private savedLang = typeof localStorage !== 'undefined' ? localStorage.getItem('language') || 'en' : 'en';
+  private savedLang = typeof localStorage !== 'undefined' ? localStorage.getItem('language') || 'de' : 'de';
   
   private currentLangSubject = new BehaviorSubject<string>(this.savedLang);
   public currentLang$ = this.currentLangSubject.asObservable();

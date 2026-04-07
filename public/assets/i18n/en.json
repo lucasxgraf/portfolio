@@ -55,6 +55,9 @@
       },
       "POLL_APP": {
         "DESCRIPTION": "Poll App is an Angular app for creating, sharing, and evaluating surveys in real time—with Supabase as the backend for authentication and data storage."
+      },
+      "CODE_A_CUISINE": {
+        "DESCRIPTION": "Never stand in front of the fridge at a loss again! This smart web app with AI automation automatically suggests recipes based on the ingredients you already have at home. This way, you save time, avoid food waste, and get fresh inspiration for your everyday cooking."
       }
     }
   },
@@ -79,6 +82,12 @@
         "PROJECT": "Kochwelt",
         "TEXT": "Working with Lucas was a great experience. He is proactive, reliable, and friendly, which created a very relaxed working atmosphere. Thanks to his structured approach, we were able to reach our goals quickly. It was a pleasure collaborating with him.",
         "GITHUB_LINK": "https://github.com/Saki63"
+      },
+      {
+        "NAME": "Tizian Borgest Jost",
+        "PROJECT": "Kochwelt",
+        "TEXT": "Collaborating with Lucas was an extremely positive experience, characterized by his calm and reflective nature. He enriches the team with clearly articulated and well-reasoned perspectives, while executing tasks efficiently with high value for everyone involved. Thanks to his structured approach and appreciative communication, we developed a highly presentable product in a short amount of time. A collaboration that truly benefited the entire team.",
+        "GITHUB_LINK": "https://github.com/TizianJost"
       }
     ]
   },

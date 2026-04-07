@@ -29,6 +29,7 @@ export class SkillsComponent implements AfterViewInit, OnDestroy {
     { name: 'Firebase', icon: 'assets/img/skills/tools/firebase.png' },
     { name: 'Git', icon: 'assets/img/skills/tools/git.png' },
     { name: 'REST-API', icon: 'assets/img/skills/tools/rest-api.png' },
+    { name: 'N8N', icon: 'assets/img/skills/tools/n8n.png' },
     { name: 'Material Design', icon: 'assets/img/skills/frontend/materialDesign.png' },
     { name: 'Scrum', icon: 'assets/img/skills/tools/scrum.png' },
     { name: 'Growth mindset', icon: 'assets/img/skills/tools/growthMindset.png' }
