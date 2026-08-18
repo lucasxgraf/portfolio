@@ -5,12 +5,12 @@
     "PROJECTS": "Projekte"
   },
   "HERO": {
-    "JOB_TITLE": "Frontend Entwickler",
+    "JOB_TITLE": "Fullstack Entwickler",
     "MY_PROJECTS": "Meine Projekte",
     "CONTACT_ME": "Kontaktiere mich",
     "MARQUEE": {
       "REMOTE_WORK": "Verfügbar für Remote-Arbeit",
-      "JOB_TITLE": "Frontend Entwickler",
+      "JOB_TITLE": "Fullstack Entwickler",
       "LOCATION": "Ansässig in Leipzig",
       "OPEN_TO_WORK": "Offen für neue Projekte"
     }
@@ -26,18 +26,27 @@
   "SKILLS": {
     "SUB_TITLE": "Technologien",
     "TITLE": "Fähigkeiten",
-    "DESCRIPTION": "Technologien sind für mich ein Werkzeugkasten zur Lösung echter Probleme. Ich arbeite gern mit modernen Frontend-Tools und möchte verstehen, wie Dinge wirklich funktionieren. Die schnelle Entwicklung im Web motiviert mich, ständig dazuzulernen. In meiner Weiterentwicklung habe ich gelernt, sauberen und wartbaren Code in agilen Teams zu schreiben. Ich sehe mich als lernhungriges Teammitglied, das technische Lösungen immer im Kontext des Geschäftswerts betrachtet.",
+    "DESCRIPTION": "Technologien sind für mich ein Werkzeugkasten zur Lösung echter Probleme. Ich arbeite gern mit modernen Frontend- und Backend-Technologien und möchte verstehen, wie Dinge wirklich funktionieren. Die schnelle Entwicklung im Web motiviert mich, ständig dazuzulernen. In meiner Weiterentwicklung habe ich gelernt, sauberen und wartbaren Code in agilen Teams zu schreiben. Ich sehe mich als lernhungriges Teammitglied, das technische Lösungen immer im Kontext des Geschäftswerts betrachtet.",
     "CTA": "Du suchst eine bestimmte",
     "CTA_SKILL": "Technologie?",
     "CONTACT_ME": "Kontaktiere mich! Ich erweitere mein Skillset kontinuierlich.",
     "CTA_BUTTON": "Reden wir",
-    "TOOLTIP": "Ich habe ein besonderes Interesse am Lernen von"
+    "TOOLTIP": "Ich habe ein besonderes Interesse am Lernen von",
+    "GROUPS": {
+      "FRONTEND": "Frontend",
+      "BACKEND": "Backend",
+      "TOOLS": "Tools & Arbeitsweise"
+    }
   },
   "FEATURED-PROJECTS": {
     "SUB_TITLE": "Portfolio",
     "TITLE": "Ausgewählte Projekte",
     "DESCRIPTION": "Entdecke eine Auswahl meiner Arbeit - Interagiere mit den Projekten, um meine Fähigkeiten in Aktion zu sehen.",
     "COMING_SOON": "In Bearbeitung",
+    "CATEGORY": {
+      "FRONTEND": "Frontend",
+      "BACKEND": "Backend"
+    },
     "DIALOG": {
       "QUESTION": "Worum geht es in diesem Projekt?",
       "GITHUB": "GitHub",
@@ -58,6 +67,12 @@
       },
       "CODE_A_CUISINE": {
         "DESCRIPTION": "Nie wieder ratlos vorm Kühlschrank! Die smarte Web-App mit KI-Automatisierung zeigt dir, auf Basis deiner vorhandenen Zutaten zuhause automatisch passende Rezepte. So sparst du Zeit, vermeidest Food-Waste und bekommst frische Inspiration für deinen Kochalltag."
+      },
+      "CODERR": {
+        "DESCRIPTION": "Ein Django REST Framework Backend für einen Freelance-Marktplatz: Business-User veröffentlichen Angebote mit mehreren Preisstufen, Kunden durchsuchen, bestellen und bewerten diese - alles über eine selbst gebaute REST-API mit Token-Authentifizierung."
+      },
+      "VIDEOFLIX": {
+        "DESCRIPTION": "Ein Django REST Framework Backend für eine Netflix-artige Streaming-Plattform. Verwaltet JWT-Auth über HttpOnly-Cookies, E-Mail-basierte Kontoaktivierung und Video-Uploads, die von einem Redis-gestützten Background-Worker automatisch in adaptive HLS-Streams (480p/720p/1080p) umgewandelt werden."
       }
     }
   },
@@ -96,7 +111,7 @@
     "TITLE": "Lass uns zusammenarbeiten",
     "DESCRIPTION_TITLE": "Suchen Sie Verstärkung für Ihr Team?",
     "DESCRIPTION": "Ich arbeite gerne an realen Projekten mit und bringe mich aktiv in neue Herausforderungen ein. Besonders reizt mich ein Umfeld, in dem ich Verantwortung übernehmen und mich Schritt für Schritt weiterentwickeln kann. Durch meinen Business-Background bringe ich eine strukturierte, lösungsorientierte Perspektive in technische Herausforderungen ein und denke über Code hinaus auch in Produkt- und Nutzerwert.",
-    "DESCRIPTION_CTA": "Wenn Du einen Frontend Developer suchst, der mitdenkt, Verantwortung übernehmen möchte und langfristig wachsen will,",
+    "DESCRIPTION_CTA": "Wenn Du einen Fullstack Developer suchst, der mitdenkt, Verantwortung übernehmen möchte und langfristig wachsen will,",
     "DESCRIPTION_CTA_TALK": "sollten wir miteinander sprechen.",
     "NAME_LABEL": "Wie ist Dein Name?",
     "NAME_INPUT_PLACEHOLDER": "Lass mich Deinen Namen wissen",
@@ -115,7 +130,7 @@
     "SUCCESS_FEEDBACK": "Vielen Dank für Deine Nachricht! Ich habe Deine Nachricht erhalten und werde mich schnellstmöglich bei Dir zurückmelden."
   },
   "FOOTER": {
-    "DEVELOPER": "Frontend Entwickler",
+    "DEVELOPER": "Fullstack Entwickler",
     "LOCATION": "Leipzig, Deutschland",
     "EMAIL": "Email",
     "IMPRINT": "Impressum"

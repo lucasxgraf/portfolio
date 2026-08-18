@@ -109,6 +109,27 @@ section {
       }
     }
 
+    &.category_backend {
+      border-left: 3px solid $color-backend;
+
+      &::before {
+        background: radial-gradient(circle at 50% 50%, rgba($color-backend, 0.2) 0%, transparent 70%);
+      }
+
+      &:hover,
+      &.active {
+        background-color: rgba($color-backend, 0.05);
+
+        .featured_project_info h3 {
+          color: $color-backend;
+        }
+      }
+    }
+
+    .featured_project_info {
+      @include flex-column($gap: 8px);
+    }
+
     .featured_project_info h3 {
       font-family: $font-fira;
       font-size: 2rem;
@@ -150,6 +171,26 @@ section {
   }
 }
 
+.badge_category {
+  font-family: $font-fira;
+  align-self: flex-start;
+  padding: 3px 12px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border-radius: 12px;
+  border: 1px solid rgba($color-accent, 0.5);
+  color: $color-accent;
+  background: rgba($color-accent, 0.08);
+
+  &.badge_category_backend {
+    border-color: rgba($color-backend, 0.5);
+    color: $color-backend;
+    background: rgba($color-backend, 0.08);
+  }
+}
+
 .badge_upcoming {
   padding: 8px 16px;
   background: rgba($color-accent, 0.1);
@@ -163,6 +204,10 @@ section {
 .dialog_title_wrapper {
   @include flex-start(row, center, 24px);
   margin-bottom: 8px;
+
+  .badge_category {
+    align-self: center;
+  }
 }
 
 .badge_upcoming_large {

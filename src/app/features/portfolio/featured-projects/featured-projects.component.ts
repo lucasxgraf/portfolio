@@ -11,8 +11,11 @@ export interface Technology {
   icon: string;
 }
 
+export type ProjectCategory = 'frontend' | 'backend';
+
 export interface Project {
   name: string;
+  category: ProjectCategory;
   technologies: Technology[];
   previewImage: string;
   githubLink: string;
@@ -91,17 +94,24 @@ export class FeaturedProjects implements AfterViewInit, OnDestroy {
     HTML: 'assets/img/skills/frontend/html.png',
     CSS: 'assets/img/skills/frontend/css.png',
     JavaScript: 'assets/img/skills/frontend/javaScript.png',
-    Firebase: 'assets/img/skills/tools/firebase.png',
+    Firebase: 'assets/img/skills/backend/firebase.png',
     Angular: 'assets/img/skills/frontend/angular.png',
     TypeScript: 'assets/img/skills/frontend/typeScript.png',
-    Supabase: 'assets/img/skills/tools/supabase.jpeg',
+    Supabase: 'assets/img/skills/backend/supabase.png',
     SCSS: 'assets/img/skills/frontend/scss.png',
     N8N: 'assets/img/skills/tools/n8n.png',
+    Python: 'assets/img/skills/backend/python.png',
+    Django: 'assets/img/skills/backend/django.png',
+    DRF: 'assets/img/skills/tools/rest-api.png',
+    PostgreSQL: 'assets/img/skills/backend/postgresql.png',
+    Redis: 'assets/img/skills/backend/redis.png',
+    Docker: 'assets/img/skills/backend/docker.png',
   };
 
   projects: Project[] = [
     {
       name: 'Join',
+      category: 'frontend',
       technologies: this.buildTech(['HTML', 'CSS', 'JavaScript', 'Firebase']),
       previewImage: 'assets/img/featured-projects/preview-projects/join.png',
       githubLink: 'https://github.com/lucasxgraf/join',
@@ -110,6 +120,7 @@ export class FeaturedProjects implements AfterViewInit, OnDestroy {
     },
     {
       name: 'El Pollo Loco',
+      category: 'frontend',
       technologies: this.buildTech(['HTML', 'CSS', 'JavaScript']),
       previewImage: 'assets/img/featured-projects/preview-projects/el-pollo-loco.png',
       githubLink: 'https://github.com/lucasxgraf/el_pollo_loco',
@@ -118,6 +129,7 @@ export class FeaturedProjects implements AfterViewInit, OnDestroy {
     },
     {
       name: 'Poll App',
+      category: 'frontend',
       technologies: this.buildTech(['Angular', 'HTML', 'SCSS', 'TypeScript', 'Supabase']),
       previewImage: 'assets/img/featured-projects/preview-projects/poll-app.png',
       githubLink: 'https://github.com/lucasxgraf/poll-app',
@@ -126,13 +138,36 @@ export class FeaturedProjects implements AfterViewInit, OnDestroy {
     },
     {
       name: 'Code a Cuisine',
+      category: 'frontend',
       technologies: this.buildTech(['Angular', 'HTML', 'SCSS', 'TypeScript', 'Supabase', 'N8N']),
       previewImage: 'assets/img/featured-projects/preview-projects/code-a-cuisine.png',
       githubLink: 'https://github.com/lucasxgraf/code-a-cuisine',
       liveTestLink: 'https://code-a-cuisine.lucasgraf.com',
       descriptionKey: 'FEATURED-PROJECTS.PROJECTS.CODE_A_CUISINE.DESCRIPTION',
+    },
+    {
+      name: 'Coderr',
+      category: 'backend',
+      technologies: this.buildTech(['Python', 'Django', 'DRF']),
+      previewImage: 'assets/img/featured-projects/preview-projects/coderr.png',
+      githubLink: 'https://github.com/lucasxgraf/coderr_backend',
+      liveTestLink: 'https://coderr.lucasgraf.com',
+      descriptionKey: 'FEATURED-PROJECTS.PROJECTS.CODERR.DESCRIPTION',
+    },
+    {
+      name: 'Videoflix',
+      category: 'backend',
+      technologies: this.buildTech(['Python', 'Django', 'DRF', 'PostgreSQL', 'Redis', 'Docker']),
+      previewImage: 'assets/img/featured-projects/preview-projects/videoflix.png',
+      githubLink: 'https://github.com/lucasxgraf/videoflix_backend',
+      liveTestLink: 'https://videoflix.lucasgraf.com',
+      descriptionKey: 'FEATURED-PROJECTS.PROJECTS.VIDEOFLIX.DESCRIPTION',
     }
   ];
+
+  categoryKey(category: ProjectCategory): string {
+    return `FEATURED-PROJECTS.CATEGORY.${category.toUpperCase()}`;
+  }
 
   private buildTech(names: string[]): Technology[] {
     return names.map((name) => ({ name, icon: this.techMap[name] ?? '' }));
