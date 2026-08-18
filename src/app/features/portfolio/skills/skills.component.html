@@ -1,32 +1,34 @@
 <section id="skills">
   <div class="container">
     <h3 class="section_subtitle">{{ "SKILLS.SUB_TITLE" | translate }}</h3>
-    <div class="skills_layout">
-      <div class="skills_left">
-        <div class="content_box">
-          <div class="skill_title">
-            <h1>{{ "SKILLS.TITLE" | translate }}</h1>
-          </div>
-          <div class="skill_description">
-            <p>{{ "SKILLS.DESCRIPTION" | translate }}</p>
-          </div>
-          <div class="skill_cta">
-            <h2>{{ "SKILLS.CTA" | translate }} <span>{{ "SKILLS.CTA_SKILL" | translate }}</span></h2>
-            <p>{{ "SKILLS.CONTACT_ME" | translate }}</p>
-            <a routerLink="/" fragment="contactMe">
-              <button class="btn">{{ "SKILLS.CTA_BUTTON" | translate}}</button>
-            </a>
-          </div>
+
+    <div class="skills_intro">
+      <div class="intro_main">
+        <div class="skill_title">
+          <h1>{{ "SKILLS.TITLE" | translate }}</h1>
+        </div>
+        <div class="skill_description">
+          <p>{{ "SKILLS.DESCRIPTION" | translate }}</p>
         </div>
       </div>
-      <div class="skills_right">
-        <div class="skills_grid">
-          @for (skill of skills; track skill.name) {
-          <div class="skill_item" [class.has-tooltip]="skill.name === 'Growth mindset'">
-            <div class="skill_icon">
-              <img [src]="skill.icon" [alt]="skill.name">
-            </div>
-            <span class="skill_name">{{ skill.name }}</span>
+      <div class="intro_cta">
+        <h2>{{ "SKILLS.CTA" | translate }} <span>{{ "SKILLS.CTA_SKILL" | translate }}</span></h2>
+        <p>{{ "SKILLS.CONTACT_ME" | translate }}</p>
+        <a routerLink="/" fragment="contactMe">
+          <button class="btn">{{ "SKILLS.CTA_BUTTON" | translate}}</button>
+        </a>
+      </div>
+    </div>
+
+    <div class="skills_columns">
+      @for (group of skillGroups; track group.key) {
+      <div class="skill_column" [class.skill_column_backend]="group.key === 'backend'">
+        <h4 class="skill_column_label">{{ group.labelKey | translate }}</h4>
+        <div class="skill_chip_list">
+          @for (skill of group.skills; track skill.name) {
+          <div class="skill_chip" [class.has-tooltip]="skill.name === 'Growth mindset'">
+            <img class="skill_chip_icon" [src]="skill.icon" [alt]="skill.name">
+            <span class="skill_chip_name">{{ skill.name }}</span>
 
             @if (skill.name === 'Growth mindset') {
             <div class="skill_tooltip">
@@ -48,6 +50,7 @@
           }
         </div>
       </div>
+      }
     </div>
   </div>
 </section>
