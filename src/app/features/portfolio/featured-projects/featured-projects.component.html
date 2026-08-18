@@ -12,8 +12,12 @@
         <div class="featured_projects_list">
           @for (project of projects; track $index) {
           <div class="featured_project_row" [class.active]="hoveredIndex === $index"
+            [class.category_backend]="project.category === 'backend'"
             (mouseenter)="hoveredIndex = $index" (mouseleave)="hoveredIndex = null" (click)="openDialog($index)">
             <div class="featured_project_info">
+              <span class="badge_category" [class.badge_category_backend]="project.category === 'backend'">
+                {{ categoryKey(project.category) | translate }}
+              </span>
               <h3>
                 {{ project.name }}
                 @if (project.isUpcoming) {
@@ -57,6 +61,9 @@
         <div class="dialog_left">
           <div class="dialog_title_wrapper">
             <span class="dialog_project_number">{{ formattedProjectNumber }}</span>
+            <span class="badge_category" [class.badge_category_backend]="selectedProject.category === 'backend'">
+              {{ categoryKey(selectedProject.category) | translate }}
+            </span>
             @if (selectedProject.isUpcoming) {
               <span class="badge_upcoming_large">{{ "FEATURED-PROJECTS.COMING_SOON" | translate }}</span>
             }
